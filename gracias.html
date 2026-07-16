@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias! | Plenix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#08070e;
+    --text:#f5f5f5;
+    --muted:#b0b0b0;
+    --blue:#0059ff;
+    --blue-hover:#1a6bff;
+    --teal:#4fd8c4;
+    --border-strong:rgba(255,255,255,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:32px;
+  }
+  .icon{
+    width:72px; height:72px;
+    border-radius:50%;
+    background:rgba(79,216,196,0.12);
+    border:1px solid rgba(79,216,196,0.3);
+    display:flex; align-items:center; justify-content:center;
+    margin:0 auto 28px;
+    color:var(--teal);
+  }
+  h1{
+    font-family:"Inter Tight","Inter",sans-serif;
+    font-size:36px;
+    font-weight:600;
+    letter-spacing:-0.8px;
+    margin-bottom:16px;
+  }
+  p{ font-size:16px; color:var(--muted); max-width:420px; margin:0 auto 32px; line-height:1.6; }
+  a.btn{
+    display:inline-flex;
+    padding:14px 28px;
+    border-radius:48px;
+    background:var(--blue);
+    color:#fff;
+    font-size:15px;
+    font-weight:500;
+    text-decoration:none;
+    transition:background .15s ease;
+  }
+  a.btn:hover{ background:var(--blue-hover); }
+</style>
+</head>
+<body>
+  <div>
+    <div class="icon">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>¡Listo! Agendamos tu asesoría</h1>
+    <p>Recibimos tus datos. Nuestro equipo te va a contactar muy pronto para coordinar el horario que mejor te acomode.</p>
+    <a href="index.html" class="btn">Volver al inicio</a>
+  </div>
+</body>
+</html>
