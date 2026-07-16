@@ -255,15 +255,48 @@
   /* ---------- FOOTER (matches home) ---------- */
   footer{
     border-top:1px solid var(--border);
-    padding:40px 32px;
+    padding:80px 32px 40px;
   }
-  .footer-copy{
+  .footer-grid{
     max-width:var(--container);
     margin:0 auto;
+    display:grid;
+    grid-template-columns:1.6fr 1fr 1fr;
+    gap:40px;
+  }
+  .footer-brand .eyebrow{
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--muted-2);
+    margin-bottom:18px;
+    display:block;
+  }
+  .footer-brand p{
+    font-size:14px;
+    line-height:1.7;
+    color:var(--muted);
+    max-width:340px;
+    margin-bottom:24px;
+  }
+  .footer-copy{
     font-size:13px;
     color:var(--muted-2);
-    text-align:center;
   }
+  .footer-col h4{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:20px;
+  }
+  .footer-col a{
+    display:block;
+    font-size:14px;
+    color:var(--muted);
+    margin-bottom:14px;
+    transition:color .15s ease;
+  }
+  .footer-col a:hover{ color:var(--text); }
 
   @media (max-width:900px){
     .split{ grid-template-columns:1fr; }
@@ -273,6 +306,7 @@
     .nav-links{ display:none; }
     .phone-row{ flex-direction:column; }
     .country-select{ flex:none; }
+    .footer-grid{ grid-template-columns:1fr; gap:48px; }
   }
 </style>
 </head>
@@ -391,7 +425,25 @@
 </main>
 
 <footer>
-  <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="eyebrow">PLENIX</span>
+      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda a trabajar más inteligentemente.</p>
+      <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Plenix</h4>
+      <a href="index.html#producto">Productos</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <a href="index.html#integraciones">Integraciones</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="index.html#">Políticas de privacidad</a>
+      <a href="index.html#">Seguridad</a>
+      <a href="index.html#">Condiciones de Servicio</a>
+    </div>
+  </div>
 </footer>
 
 </body>
