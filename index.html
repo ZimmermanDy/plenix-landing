@@ -186,15 +186,22 @@
     background:linear-gradient(180deg, var(--panel) 0%, rgba(15,14,23,0.4) 100%);
     border:1px solid var(--border);
     border-radius:32px 32px 0 0;
-    padding:40px 40px 0;
+    padding:16px 16px 0;
     overflow:hidden;
   }
   .hero-mockup::after{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(180deg, transparent 60%, var(--bg) 100%);
+    background:linear-gradient(180deg, transparent 70%, var(--bg) 100%);
     pointer-events:none;
+  }
+  .hero-video{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:20px 20px 0 0;
+    box-shadow:0 0 0 1px var(--border);
   }
   .search-bar{
     display:flex;
@@ -517,28 +524,9 @@
     </div>
 
     <div class="hero-mockup">
-      <div class="search-bar">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <span>¿Cuál fue el presupuesto aprobado para Q4?</span>
-        <span class="kbd">⌘K</span>
-      </div>
-      <div class="result-cards">
-        <div class="result-card">
-          <div class="icon blue">📊</div>
-          <div class="title">Budget_Q4_2026_Final.xlsx</div>
-          <div class="meta">Google Drive · Hace 2 días</div>
-        </div>
-        <div class="result-card">
-          <div class="icon purple">💬</div>
-          <div class="title">Aprobación de presupuesto Q4</div>
-          <div class="meta">Slack #finanzas · Hace 3 días</div>
-        </div>
-        <div class="result-card">
-          <div class="icon teal">✉️</div>
-          <div class="title">Re: Presupuesto Q4 aprobado</div>
-          <div class="meta">Gmail · Hace 5 días</div>
-        </div>
-      </div>
+      <video class="hero-video" autoplay loop muted playsinline>
+        <source src="hero-demo.mp4" type="video/mp4">
+      </video>
     </div>
   </section>
 
