@@ -191,25 +191,32 @@
     margin-bottom:16px;
   }
   .country-select{
-    position:relative;
-    flex:0 0 118px;
+    flex:0 0 110px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:0 12px;
+    border-radius:14px;
+    border:1.5px solid #e2e5ee;
+    background:#fff;
+    transition:border-color .15s ease;
+  }
+  .country-select:focus-within{ border-color:var(--blue); }
+  .country-select .flag{
+    font-size:16px;
+    line-height:1;
+    flex-shrink:0;
   }
   .country-select select{
-    padding-left:44px;
-    padding-right:12px;
+    flex:1;
+    border:none;
+    padding:16px 4px;
     appearance:none;
     cursor:pointer;
+    min-width:0;
   }
-  .country-select .flag{
-    position:absolute;
-    left:16px;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:16px;
-    pointer-events:none;
-  }
+  .country-select select:focus{ outline:none; }
   .phone-row .field{ flex:1; margin-bottom:0; }
-  .country-select{ margin-bottom:0; }
 
   .submit-btn{
     width:100%;
