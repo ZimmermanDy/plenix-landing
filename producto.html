@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Producto | Plenix</title>
+<meta name="description" content="Plenix conecta tus sistemas y responde en lenguaje natural, con la fuente citada, respetando exactamente quién puede ver qué.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --panel:#f5f6fa;
+    --panel-2:#eef0f7;
+    --border:rgba(20,19,31,0.08);
+    --border-strong:rgba(20,19,31,0.14);
+    --text:#14131f;
+    --muted:#57576a;
+    --muted-2:#9494a0;
+    --blue:#0059ff;
+    --blue-hover:#1a6bff;
+    --teal:#12a394;
+    --radius-pill:48px;
+    --container:1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{ text-decoration:none; color:inherit; }
+  img{ max-width:100%; display:block; }
+  ::selection{ background:rgba(0,89,255,0.14); color:var(--text); }
+
+  .wrap{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+  @media (max-width:640px){ .wrap{ padding:0 22px; } }
+
+  .eyebrow{
+    display:flex; align-items:center; gap:12px;
+    font-size:13px; font-weight:600; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--teal); margin-bottom:20px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--teal); }
+  .eyebrow.center{ justify-content:center; }
+
+  h1,h2,h3{ font-family:"Inter Tight","Inter",sans-serif; font-weight:500; letter-spacing:-0.02em; }
+
+  /* ---------- NAV (matches home) ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px; max-width:var(--container); margin:0 auto;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600; letter-spacing:-0.3px; }
+  .logo-mark{ width:26px; height:26px; display:block; }
+  .nav-links{ display:flex; align-items:center; gap:36px; }
+  .nav-links a{ font-size:15px; color:var(--muted); transition:color .15s ease; }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a.active{ color:var(--text); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 24px; border-radius:var(--radius-pill); font-size:15px; font-weight:500;
+    white-space:nowrap; cursor:pointer; border:1px solid transparent; transition:all .18s ease;
+  }
+  .btn-ghost{ background:transparent; color:var(--text); border:1px solid var(--border-strong); }
+  .btn-ghost:hover{ background:rgba(20,19,31,0.04); }
+  .btn-primary{ background:var(--blue); color:#fff; }
+  .btn-primary:hover{ background:var(--blue-hover); }
+
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; padding:110px 0 0; text-align:center; overflow:hidden; }
+  .hero::before{
+    content:"";
+    position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+    width:900px; height:600px;
+    background:radial-gradient(ellipse at center, rgba(0,89,255,0.12) 0%, rgba(18,163,148,0.07) 40%, transparent 70%);
+    pointer-events:none; filter:blur(10px);
+  }
+  .hero .wrap{ position:relative; }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.8rem); line-height:1.08; letter-spacing:-1.4px;
+    max-width:18ch; margin:0 auto;
+  }
+  .hero p.sub{ margin:24px auto 0; max-width:56ch; font-size:1.1rem; color:var(--muted); line-height:1.6; }
+  .hero-cta{ margin-top:34px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+  .hero-cta .btn-primary{ box-shadow:0 0 40px rgba(0,89,255,0.35); }
+
+  /* ---------- PRODUCT MOCKUP ---------- */
+  .mock{
+    margin:60px auto 0; max-width:900px; text-align:left;
+    border:1px solid var(--border); border-radius:16px; overflow:hidden;
+    box-shadow:0 50px 90px -50px rgba(20,19,31,0.22);
+    background:#FFFFFF;
+  }
+  .mock-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:14px 18px; border-bottom:1px solid var(--border); background:var(--panel);
+  }
+  .mock-bar span{ width:9px; height:9px; border-radius:50%; background:var(--border-strong); }
+  .mock-bar .url{ margin-left:12px; font-size:12px; color:var(--muted-2); }
+  .mock-body{ padding:28px 28px 24px; }
+  .mock-q{
+    display:flex; align-items:center; gap:10px;
+    border:1px solid var(--border-strong); border-radius:10px; padding:14px 18px;
+    font-size:0.95rem; color:var(--text);
+  }
+  .mock-q .cursor{
+    display:inline-block; width:1px; height:16px; background:var(--blue);
+    animation:blink 1s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+  .mock-answer{ margin-top:22px; font-size:0.98rem; line-height:1.7; color:var(--text); max-width:60ch; }
+  .mock-chip{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:16px; height:16px; border-radius:4px; background:var(--panel-2);
+    font-size:10px; color:var(--blue); margin:0 2px; vertical-align:middle;
+  }
+  .mock-sources{
+    margin-top:22px; display:flex; gap:10px; flex-wrap:wrap;
+    border-top:1px solid var(--border); padding-top:18px;
+  }
+  .mock-source{
+    display:flex; align-items:center; gap:8px;
+    border:1px solid var(--border); border-radius:20px; padding:6px 12px 6px 8px;
+    font-size:12.5px; color:var(--muted);
+  }
+  .mock-source .dot{ width:7px; height:7px; border-radius:50%; background:var(--teal); }
+  @media (max-width:640px){ .mock-body{ padding:20px 18px; } }
+
+  /* ---------- CÓMO FUNCIONA ---------- */
+  .flow{ padding:110px 0 100px; border-top:1px solid var(--border); }
+  .flow-head{ text-align:center; margin-bottom:56px; }
+  .flow-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; max-width:20ch; margin:0 auto; }
+  .flow-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--border); border-left:1px solid var(--border);
+  }
+  .flow-step{ padding:36px 30px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); }
+  .flow-step .n{ font-size:13px; font-weight:600; color:var(--teal); margin-bottom:18px; }
+  .flow-step h3{ font-size:1.15rem; font-weight:500; margin-bottom:10px; }
+  .flow-step p{ color:var(--muted); font-size:0.95rem; line-height:1.6; }
+  @media (max-width:820px){ .flow-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- FEATURE GRID ---------- */
+  .features{ padding:100px 0; border-top:1px solid var(--border); background:var(--panel); }
+  .features-head{ display:flex; justify-content:space-between; align-items:flex-end; gap:40px; margin-bottom:48px; }
+  .features-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; max-width:16ch; }
+  .features-head p{ max-width:36ch; color:var(--muted); font-size:0.98rem; padding-bottom:4px; }
+  @media (max-width:720px){ .features-head{ flex-direction:column; align-items:flex-start; gap:16px; } }
+
+  .feature-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+  }
+  .feature{
+    background:#FFFFFF; padding:32px 28px; min-height:190px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .feature .icon{
+    width:36px; height:36px; border-radius:9px; background:var(--blue);
+    display:flex; align-items:center; justify-content:center; margin-bottom:22px;
+  }
+  .feature .icon svg{ width:16px; height:16px; stroke:#FFFFFF; }
+  .feature h3{ font-size:1.05rem; font-weight:500; margin-bottom:8px; }
+  .feature p{ color:var(--muted); font-size:0.92rem; line-height:1.6; }
+  @media (max-width:820px){ .feature-grid{ grid-template-columns:1fr; } }
+  @media (min-width:821px) and (max-width:1080px){ .feature-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- POR EQUIPO ---------- */
+  .teams{ padding:100px 0; border-top:1px solid var(--border); }
+  .teams-head{ text-align:center; margin-bottom:48px; }
+  .teams-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; }
+  .teams-head p{ color:var(--muted); margin-top:14px; max-width:44ch; margin-left:auto; margin-right:auto; }
+  .team-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:0;
+    border-top:1px solid var(--border); border-left:1px solid var(--border);
+  }
+  .team{
+    padding:28px 26px; border-right:1px solid var(--border); border-bottom:1px solid var(--border);
+    transition:background 0.25s ease;
+  }
+  .team:hover{ background:var(--panel); }
+  .team .tag{
+    font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--teal); margin-bottom:10px; display:block;
+  }
+  .team p{ font-size:0.95rem; color:var(--text); line-height:1.55; }
+  @media (max-width:820px){ .team-grid{ grid-template-columns:1fr; } }
+  @media (min-width:821px) and (max-width:1080px){ .team-grid{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- INTEGRACIONES ---------- */
+  .integrations{ padding:100px 0; border-top:1px solid var(--border); background:var(--panel); }
+  .integrations-head{ text-align:center; margin-bottom:44px; }
+  .integrations-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; }
+  .pill-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:760px; margin:0 auto; }
+  .pill{
+    font-size:0.9rem; font-weight:500; color:var(--text);
+    background:#FFFFFF; border:1px solid var(--border-strong); border-radius:20px; padding:9px 18px;
+  }
+  .pill.muted{ color:var(--muted); border-color:var(--border); }
+  .integrations-foot{ text-align:center; margin-top:32px; }
+  .integrations-foot a{ font-size:0.92rem; color:var(--blue); text-decoration:underline; }
+  .integrations-foot a:hover{ color:var(--blue-hover); }
+
+  /* ---------- SEGURIDAD ---------- */
+  .security{ padding:90px 0; border-top:1px solid var(--border); }
+  .security-inner{ display:flex; justify-content:space-between; align-items:flex-start; gap:40px; flex-wrap:wrap; }
+  .security-copy{ max-width:36ch; }
+  .security-copy h2{ font-size:clamp(1.5rem, 2.8vw, 1.9rem); letter-spacing:-0.5px; margin-bottom:14px; }
+  .security-copy p{ color:var(--muted); font-size:0.98rem; line-height:1.65; }
+  .security-badges{ display:grid; grid-template-columns:repeat(2, 1fr); gap:16px 40px; flex:1 1 380px; }
+  .badge{ border-top:1px solid var(--border); padding-top:14px; }
+  .badge .t{ font-weight:600; font-size:0.95rem; margin-bottom:4px; }
+  .badge .d{ color:var(--muted-2); font-size:0.85rem; }
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-band{
+    background:linear-gradient(160deg, #0a2fcc 0%, #0043e0 55%, #0032ad 100%);
+    color:#FFFFFF; padding:110px 0; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";
+    position:absolute; top:-40%; left:50%; transform:translateX(-50%);
+    width:700px; height:500px;
+    background:radial-gradient(circle, rgba(79,216,196,0.16) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .cta-band .wrap{ position:relative; }
+  .cta-band h2{ font-size:clamp(1.8rem, 3.8vw, 2.6rem); letter-spacing:-1px; max-width:16ch; margin:0 auto; color:#FFFFFF; }
+  .cta-band p{ color:rgba(255,255,255,0.72); margin:20px auto 0; max-width:48ch; }
+  .cta-band .hero-cta{ margin-top:36px; }
+  .cta-band .btn-primary{ background:#FFFFFF; color:var(--blue); box-shadow:none; }
+  .cta-band .btn-primary:hover{ background:#eef0f7; }
+  .cta-band .btn-ghost{ border-color:rgba(255,255,255,0.3); color:#FFFFFF; }
+  .cta-band .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.08); }
+
+  /* ---------- FOOTER (matches home) ---------- */
+  footer{ border-top:1px solid var(--border); padding:80px 32px 40px; }
+  .footer-grid{
+    max-width:var(--container); margin:0 auto;
+    display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:40px;
+  }
+  .footer-brand .eyebrow{ margin-bottom:18px; color:var(--muted-2); letter-spacing:2px; }
+  .footer-brand .eyebrow::before{ background:var(--muted-2); }
+  .footer-brand p{ font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:24px; }
+  .footer-col h4{ font-size:15px; font-weight:600; margin-bottom:20px; }
+  .footer-col a{ display:block; font-size:14px; color:var(--muted); margin-bottom:14px; transition:color .15s ease; }
+  .footer-col a:hover{ color:var(--text); }
+  .footer-copy{ text-align:center; margin-top:28px; font-size:13px; color:var(--muted-2); }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .footer-grid{ grid-template-columns:1fr; gap:48px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#8CF5C7"/>
+            <stop offset="100%" stop-color="#1FAE7A"/>
+          </linearGradient>
+        </defs>
+        <path d="M4 8 L28 8 L20 15 L28 15 L20 22 L28 22 L16 30 L4 22 L12 22 L4 15 L12 15 Z" fill="url(#logoGrad)"/>
+      </svg>
+      Plenix
+    </a>
+    <div class="nav-links">
+      <a href="producto.html" class="active">Producto</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <a href="index.html#integraciones">Integraciones</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
+      <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow center">Producto</div>
+    <h1>Todo lo que tu empresa sabe, en una sola respuesta.</h1>
+    <p class="sub">Plenix conecta tus sistemas —Buk, Defontana, Manager, Google Drive, Slack— y responde en lenguaje natural, con la fuente citada, respetando exactamente quién puede ver qué.</p>
+
+    <div class="hero-cta">
+      <a href="demo.html" class="btn btn-primary">Agenda una demo</a>
+      <a href="#integraciones" class="btn btn-ghost">Ver integraciones</a>
+    </div>
+
+    <div class="mock">
+      <div class="mock-bar">
+        <span></span><span></span><span></span>
+        <span class="url">plenix.ai/buscar</span>
+      </div>
+      <div class="mock-body">
+        <div class="mock-q">¿Cuál fue el gasto en marketing durante el Q2?<span class="cursor"></span></div>
+        <div class="mock-answer">
+          El gasto total en marketing durante el Q2 fue de <strong>$48.200.000 CLP</strong>, un 12% por sobre lo presupuestado <span class="mock-chip">1</span>. El mayor componente correspondió a campañas digitales, seguido por producción de contenido <span class="mock-chip">2</span>.
+        </div>
+        <div class="mock-sources">
+          <div class="mock-source"><span class="dot"></span>Reporte_Q2_Marketing.xlsx — Google Drive</div>
+          <div class="mock-source"><span class="dot"></span>Presupuesto Anual — Manager ERP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow">
+  <div class="wrap">
+    <div class="flow-head">
+      <div class="eyebrow center">Cómo funciona</div>
+      <h2>De sistemas dispersos a una respuesta confiable, en tres pasos.</h2>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-step">
+        <div class="n">01</div>
+        <h3>Conecta</h3>
+        <p>Integra tus fuentes de datos —locales y globales— en minutos, sin migrar ni duplicar información.</p>
+      </div>
+      <div class="flow-step">
+        <div class="n">02</div>
+        <h3>Indexa con permisos</h3>
+        <p>Cada documento se indexa respetando exactamente los permisos definidos en el sistema original.</p>
+      </div>
+      <div class="flow-step" style="border-right:none;">
+        <div class="n">03</div>
+        <h3>Pregunta</h3>
+        <p>Recibe una respuesta generada, con la fuente citada y el link directo al documento original.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="wrap">
+    <div class="features-head">
+      <h2>Diseñado para responder con contexto real</h2>
+      <p>La arquitectura que hace que cada respuesta sea precisa, segura y explicable.</p>
+    </div>
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div>
+          <h3>Búsqueda híbrida</h3>
+          <p>Combina búsqueda por palabras clave y por significado para encontrar lo relevante, aunque no uses los términos exactos.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div>
+          <h3>Grafo de permisos</h3>
+          <p>Cada respuesta respeta en tiempo real quién puede ver cada documento, igual que en el sistema donde vive.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <div>
+          <h3>Reranking por empresa</h3>
+          <p>Aprende qué documentos son relevantes para cada organización, no una relevancia genérica igual para todos.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h8l-1 8 10-12h-8z"/></svg></div>
+        <div>
+          <h3>Motor agéntico</h3>
+          <p>Resuelve preguntas que requieren varios pasos: buscar, cruzar información de distintas fuentes y luego responder.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+        <div>
+          <h3>Respuestas citadas</h3>
+          <p>Ninguna respuesta llega sin fuente. Siempre puedes revisar el documento original con un click.</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="7" height="7" rx="1"/><rect x="13" y="4" width="7" height="7" rx="1"/><rect x="4" y="13" width="7" height="7" rx="1"/><rect x="13" y="13" width="7" height="7" rx="1"/></svg></div>
+        <div>
+          <h3>Multi-modelo</h3>
+          <p>Usa el modelo de IA más adecuado para cada tipo de pregunta, sin que tengas que elegir manualmente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="teams">
+  <div class="wrap">
+    <div class="teams-head">
+      <div class="eyebrow center">Por equipo</div>
+      <h2>Una respuesta distinta para cada forma de trabajar</h2>
+      <p>Plenix se adapta al lenguaje y las fuentes de cada área, no al revés.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team">
+        <span class="tag">RR.HH.</span>
+        <p>Responde dudas sobre políticas internas, liquidaciones y beneficios sin escalar a la gente de personas.</p>
+      </div>
+      <div class="team">
+        <span class="tag">Finanzas</span>
+        <p>Encuentra cifras de presupuesto, gasto y facturación cruzando ERP, planillas y reportes al instante.</p>
+      </div>
+      <div class="team">
+        <span class="tag">Legal</span>
+        <p>Ubica cláusulas, versiones de contratos y políticas de cumplimiento sin revisar carpeta por carpeta.</p>
+      </div>
+      <div class="team">
+        <span class="tag">Operaciones</span>
+        <p>Consulta procedimientos, SLAs y estados de proyecto dispersos entre Jira, Notion y correo.</p>
+      </div>
+      <div class="team">
+        <span class="tag">TI</span>
+        <p>Resuelve tickets repetitivos con respuestas basadas en la documentación técnica real de la empresa.</p>
+      </div>
+      <div class="team">
+        <span class="tag">Liderazgo</span>
+        <p>Obtén una visión consolidada del negocio sin pedirle un reporte nuevo a cada equipo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="integrations" id="integraciones">
+  <div class="wrap">
+    <div class="integrations-head">
+      <div class="eyebrow center">Integraciones</div>
+      <h2>Se conecta a lo que ya usas</h2>
+    </div>
+    <div class="pill-row">
+      <span class="pill">Buk</span>
+      <span class="pill">Defontana</span>
+      <span class="pill">Manager ERP</span>
+      <span class="pill">SII</span>
+      <span class="pill">Google Workspace</span>
+      <span class="pill">Slack</span>
+      <span class="pill">Notion</span>
+      <span class="pill">Jira</span>
+      <span class="pill">Salesforce</span>
+      <span class="pill muted">+ 50 herramientas más</span>
+    </div>
+    <div class="integrations-foot">
+      <a href="demo.html">¿No ves tu herramienta? Conversemos →</a>
+    </div>
+  </div>
+</section>
+
+<section class="security">
+  <div class="wrap security-inner">
+    <div class="security-copy">
+      <h2>Seguridad pensada para la región</h2>
+      <p>La infraestructura y los permisos no son un agregado — son la base sobre la que se construye cada respuesta.</p>
+    </div>
+    <div class="security-badges">
+      <div class="badge">
+        <div class="t">Ley 21.719</div>
+        <div class="d">Alineado a la normativa de protección de datos personales de Chile.</div>
+      </div>
+      <div class="badge">
+        <div class="t">LGPD</div>
+        <div class="d">Preparado para operar bajo la normativa brasileña al expandirse en la región.</div>
+      </div>
+      <div class="badge">
+        <div class="t">AWS São Paulo</div>
+        <div class="d">Infraestructura alojada en la región, no al otro lado del mundo.</div>
+      </div>
+      <div class="badge">
+        <div class="t">Permisos heredados</div>
+        <div class="d">Cada respuesta respeta los accesos definidos en el sistema de origen.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Conecta tus sistemas. Obtén respuestas, no links.</h2>
+    <p>Agenda una demo y muéstranos las herramientas con las que trabaja tu equipo.</p>
+    <div class="hero-cta">
+      <a href="demo.html" class="btn btn-primary">Agenda una demo</a>
+      <a href="demo.html" class="btn btn-ghost">Hablar con ventas</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="eyebrow">PLENIX</span>
+      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda a trabajar más inteligentemente.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Plenix</h4>
+      <a href="producto.html">Productos</a>
+      <a href="index.html#beneficios">Beneficios</a>
+      <a href="index.html#integraciones">Integraciones</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacidad.html">Políticas de privacidad</a>
+      <a href="index.html#">Seguridad</a>
+      <a href="condiciones.html">Condiciones de Servicio</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
+</footer>
+
+</body>
+</html>
