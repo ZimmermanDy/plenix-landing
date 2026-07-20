@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integraciones | Plenix</title>
+<meta name="description" content="Plenix se conecta a las herramientas que tu empresa ya usa: RR.HH., finanzas, documentos, comunicación y más de 50 sistemas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#ffffff;
+    --panel:#f5f6fa;
+    --panel-2:#eef0f7;
+    --border:rgba(20,19,31,0.08);
+    --border-strong:rgba(20,19,31,0.14);
+    --text:#14131f;
+    --muted:#57576a;
+    --muted-2:#9494a0;
+    --blue:#0059ff;
+    --blue-hover:#1a6bff;
+    --blue-dim:rgba(0,89,255,0.08);
+    --teal:#12a394;
+    --teal-dim:rgba(18,163,148,0.1);
+    --radius-pill:48px;
+    --container:1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+
+  a{ text-decoration:none; color:inherit; }
+  img{ max-width:100%; display:block; }
+  button{ font:inherit; }
+  ::selection{ background:rgba(0,89,255,0.14); color:var(--text); }
+
+  .wrap{ max-width:var(--container); margin:0 auto; padding:0 32px; }
+  @media (max-width:640px){ .wrap{ padding:0 22px; } }
+
+  .eyebrow{
+    display:flex; align-items:center; gap:12px;
+    font-size:13px; font-weight:600; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--teal); margin-bottom:20px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--teal); }
+  .eyebrow.center{ justify-content:center; }
+
+  h1,h2,h3{ font-family:"Inter Tight","Inter",sans-serif; font-weight:500; letter-spacing:-0.02em; }
+
+  /* ---------- NAV (matches home) ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px; max-width:var(--container); margin:0 auto;
+  }
+  .logo{ display:flex; align-items:center; gap:10px; font-size:20px; font-weight:600; letter-spacing:-0.3px; }
+  .logo-mark{ width:26px; height:26px; display:block; }
+  .nav-links{ display:flex; align-items:center; gap:36px; }
+  .nav-links a{ font-size:15px; color:var(--muted); transition:color .15s ease; }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a.active{ color:var(--text); }
+  .nav-cta{ display:flex; align-items:center; gap:14px; }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:12px 24px; border-radius:var(--radius-pill); font-size:15px; font-weight:500;
+    white-space:nowrap; cursor:pointer; border:1px solid transparent; transition:all .18s ease;
+  }
+  .btn-ghost{ background:transparent; color:var(--text); border:1px solid var(--border-strong); }
+  .btn-ghost:hover{ background:rgba(20,19,31,0.04); }
+  .btn-primary{ background:var(--blue); color:#fff; }
+  .btn-primary:hover{ background:var(--blue-hover); }
+
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; padding:110px 0 0; text-align:center; overflow:hidden; }
+  .hero::before{
+    content:"";
+    position:absolute; top:-200px; left:50%; transform:translateX(-50%);
+    width:900px; height:600px;
+    background:radial-gradient(ellipse at center, rgba(0,89,255,0.12) 0%, rgba(18,163,148,0.07) 40%, transparent 70%);
+    pointer-events:none; filter:blur(10px);
+  }
+  .hero .wrap{ position:relative; }
+  .hero h1{
+    font-size:clamp(2.2rem, 5vw, 3.8rem); line-height:1.08; letter-spacing:-1.4px;
+    max-width:20ch; margin:0 auto;
+  }
+  .hero p.sub{ margin:24px auto 0; max-width:56ch; font-size:1.1rem; color:var(--muted); line-height:1.6; }
+  .hero-cta{ margin-top:34px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; }
+  .hero-cta .btn-primary{ box-shadow:0 0 40px rgba(0,89,255,0.35); }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee-section{ margin-top:70px; padding-bottom:100px; }
+  .marquee{
+    position:relative; overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .marquee-track{
+    display:flex; align-items:center; gap:14px; width:max-content;
+    animation:scrollLeft 34s linear infinite;
+  }
+  .marquee:hover .marquee-track{ animation-play-state:paused; }
+  @keyframes scrollLeft{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  .chip{
+    display:flex; align-items:center; gap:10px;
+    border:1px solid var(--border); border-radius:14px; padding:12px 18px;
+    background:#FFFFFF; white-space:nowrap;
+  }
+  .chip .mark{
+    width:28px; height:28px; border-radius:8px; background:var(--panel-2);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+    font-family:"Inter Tight","Inter",sans-serif; font-weight:600; font-size:12px; color:var(--text);
+  }
+  .chip span.name{ font-size:0.92rem; font-weight:500; color:var(--text); }
+  @media (prefers-reduced-motion: reduce){ .marquee-track{ animation:none; } }
+
+  /* ---------- VALUE PROPS (reuse flow pattern) ---------- */
+  .value{ padding:100px 0; border-top:1px solid var(--border); background:var(--panel); }
+  .value-head{ text-align:center; margin-bottom:56px; }
+  .value-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; max-width:22ch; margin:0 auto; }
+  .value-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+  }
+  .value-item{ background:#FFFFFF; padding:32px 28px; }
+  .value-item .icon{
+    width:36px; height:36px; border-radius:9px; background:var(--blue);
+    display:flex; align-items:center; justify-content:center; margin-bottom:22px;
+  }
+  .value-item .icon svg{ width:16px; height:16px; stroke:#FFFFFF; }
+  .value-item h3{ font-size:1.05rem; font-weight:500; margin-bottom:8px; }
+  .value-item p{ color:var(--muted); font-size:0.92rem; line-height:1.6; }
+  @media (max-width:820px){ .value-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- DIRECTORY ---------- */
+  .directory{ padding:100px 0 110px; border-top:1px solid var(--border); }
+  .directory-head{ text-align:center; margin-bottom:44px; }
+  .directory-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; }
+  .directory-head p{ color:var(--muted); margin-top:14px; max-width:48ch; margin-left:auto; margin-right:auto; }
+
+  .filter-row{
+    display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
+    margin:0 auto 48px; max-width:900px;
+  }
+  .filter-pill{
+    font-size:0.88rem; font-weight:500; color:var(--muted);
+    background:#FFFFFF; border:1px solid var(--border-strong); border-radius:20px; padding:9px 16px;
+    cursor:pointer; transition:all .15s ease;
+  }
+  .filter-pill:hover{ color:var(--text); border-color:var(--text); }
+  .filter-pill.active{ background:var(--text); color:#FFFFFF; border-color:var(--text); }
+
+  .connector-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:1px;
+    background:var(--border); border:1px solid var(--border);
+  }
+  .connector{
+    background:#FFFFFF; padding:26px 22px; display:flex; flex-direction:column; gap:16px;
+    transition:background .15s ease;
+  }
+  .connector:hover{ background:var(--panel); }
+  .connector-top{ display:flex; align-items:flex-start; justify-content:space-between; }
+  .connector .mark{
+    width:44px; height:44px; border-radius:12px; background:var(--panel-2);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+    font-family:"Inter Tight","Inter",sans-serif; font-weight:600; font-size:14px; color:var(--text);
+  }
+  .mark.has-logo{ background:#FFFFFF; border:1px solid var(--border); }
+  .mark.has-logo img{ width:100%; height:100%; object-fit:contain; padding:6px; }
+  .chip .mark.has-logo img{ padding:4px; }
+  .connector .badge{
+    font-size:11px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;
+    color:var(--teal); background:var(--teal-dim); border-radius:6px; padding:4px 8px;
+  }
+  .connector .name{ font-size:0.98rem; font-weight:500; color:var(--text); }
+  .connector .cat{ font-size:0.82rem; color:var(--muted-2); }
+  @media (max-width:980px){ .connector-grid{ grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px){ .connector-grid{ grid-template-columns:1fr; } }
+
+  .directory-foot{ text-align:center; margin-top:40px; }
+  .directory-foot a{ font-size:0.92rem; color:var(--blue); text-decoration:underline; }
+  .directory-foot a:hover{ color:var(--blue-hover); }
+
+  /* ---------- CTA FINAL ---------- */
+  .cta-band{
+    background:linear-gradient(160deg, #0a2fcc 0%, #0043e0 55%, #0032ad 100%);
+    color:#FFFFFF; padding:110px 0; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-band::before{
+    content:"";
+    position:absolute; top:-40%; left:50%; transform:translateX(-50%);
+    width:700px; height:500px;
+    background:radial-gradient(circle, rgba(79,216,196,0.16) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .cta-band .wrap{ position:relative; }
+  .cta-band h2{ font-size:clamp(1.8rem, 3.8vw, 2.6rem); letter-spacing:-1px; max-width:16ch; margin:0 auto; color:#FFFFFF; }
+  .cta-band p{ color:rgba(255,255,255,0.72); margin:20px auto 0; max-width:48ch; }
+  .cta-band .hero-cta{ margin-top:36px; }
+  .cta-band .btn-primary{ background:#FFFFFF; color:var(--blue); box-shadow:none; }
+  .cta-band .btn-primary:hover{ background:#eef0f7; }
+  .cta-band .btn-ghost{ border-color:rgba(255,255,255,0.3); color:#FFFFFF; }
+  .cta-band .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.08); }
+
+  /* ---------- FOOTER (matches home) ---------- */
+  footer{ border-top:1px solid var(--border); padding:80px 32px 40px; }
+  .footer-grid{
+    max-width:var(--container); margin:0 auto;
+    display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:40px;
+  }
+  .footer-brand .eyebrow{ margin-bottom:18px; color:var(--muted-2); letter-spacing:2px; }
+  .footer-brand .eyebrow::before{ background:var(--muted-2); }
+  .footer-brand p{ font-size:14px; line-height:1.7; color:var(--muted); max-width:340px; margin-bottom:24px; }
+  .footer-col h4{ font-size:15px; font-weight:600; margin-bottom:20px; }
+  .footer-col a{ display:block; font-size:14px; color:var(--muted); margin-bottom:14px; transition:color .15s ease; }
+  .footer-col a:hover{ color:var(--text); }
+  .footer-copy{ text-align:center; margin-top:28px; font-size:13px; color:var(--muted-2); }
+
+  @media (max-width:900px){
+    .nav-links{ display:none; }
+    .footer-grid{ grid-template-columns:1fr; gap:48px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="index.html" class="logo">
+      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#8CF5C7"/>
+            <stop offset="100%" stop-color="#1FAE7A"/>
+          </linearGradient>
+        </defs>
+        <path d="M4 8 L28 8 L20 15 L28 15 L20 22 L28 22 L16 30 L4 22 L12 22 L4 15 L12 15 Z" fill="url(#logoGrad)"/>
+      </svg>
+      Plenix
+    </a>
+    <div class="nav-links">
+      <a href="producto.html">Producto</a>
+      <a href="beneficios.html">Beneficios</a>
+      <a href="integraciones.html" class="active">Integraciones</a>
+      <a href="nosotros.html">Nosotros</a>
+    </div>
+    <div class="nav-cta">
+      <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
+      <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow center">Integraciones</div>
+    <h1>Conecta todo lo que tu empresa ya usa.</h1>
+    <p class="sub">Plenix se integra con más de 50 sistemas —RR.HH., finanzas, documentos y comunicación— sin migrar datos ni cambiar tus procesos.</p>
+    <div class="hero-cta">
+      <a href="demo.html" class="btn btn-primary">Agenda una demo</a>
+      <a href="#directorio" class="btn btn-ghost">Ver todas las integraciones</a>
+    </div>
+  </div>
+
+  <div class="marquee-section">
+    <div class="wrap">
+      <div class="marquee">
+        <div class="marquee-track" id="marqueeTrack"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="value">
+  <div class="wrap">
+    <div class="value-head">
+      <div class="eyebrow center">Cómo funciona</div>
+      <h2>IA que entiende completamente tu negocio</h2>
+    </div>
+    <div class="value-grid">
+      <div class="value-item">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M9 4v16"/></svg></div>
+        <h3>+50 conectores listos para usar</h3>
+        <p>Integra tus sistemas locales y globales en minutos. Tú decides qué datos usa la IA en cada caso.</p>
+      </div>
+      <div class="value-item">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>Acceso permisionado por persona</h3>
+        <p>Los permisos se heredan del sistema original y se respetan de forma estricta: cada quien ve solo lo suyo.</p>
+      </div>
+      <div class="value-item">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
+        <h3>Sincronización en tiempo real</h3>
+        <p>Cuando algo cambia en el sistema de origen, se refleja de inmediato en Plenix — incluidos los permisos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="directory" id="directorio">
+  <div class="wrap">
+    <div class="directory-head">
+      <div class="eyebrow center">Directorio</div>
+      <h2>Explora las integraciones por categoría</h2>
+      <p>Un listado referencial de los sistemas que Plenix puede conectar hoy.</p>
+    </div>
+
+    <div class="filter-row" id="filterRow">
+      <button class="filter-pill active" data-filter="todos">Todos</button>
+      <button class="filter-pill" data-filter="popular">Popular</button>
+      <button class="filter-pill" data-filter="comunicacion">Comunicación</button>
+      <button class="filter-pill" data-filter="documentos">Documentos</button>
+      <button class="filter-pill" data-filter="rrhh-finanzas">RR.HH. &amp; Finanzas</button>
+      <button class="filter-pill" data-filter="ventas">Ventas &amp; CRM</button>
+      <button class="filter-pill" data-filter="desarrollo">Desarrollo</button>
+      <button class="filter-pill" data-filter="productividad">Productividad</button>
+      <button class="filter-pill" data-filter="sso">Single Sign-On</button>
+    </div>
+
+    <div class="connector-grid" id="connectorGrid"></div>
+
+    <div class="directory-foot">
+      <a href="demo.html">¿No ves tu herramienta? Conversemos →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Conecta tus sistemas. Obtén respuestas, no links.</h2>
+    <p>Agenda una demo y muéstranos las herramientas con las que trabaja tu equipo.</p>
+    <div class="hero-cta">
+      <a href="demo.html" class="btn btn-primary">Agenda una demo</a>
+      <a href="demo.html" class="btn btn-ghost">Hablar con ventas</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="eyebrow">PLENIX</span>
+      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda a trabajar más inteligentemente.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Plenix</h4>
+      <a href="producto.html">Productos</a>
+      <a href="beneficios.html">Beneficios</a>
+      <a href="integraciones.html">Integraciones</a>
+    </div>
+    <div class="footer-col">
+      <h4>Legal</h4>
+      <a href="privacidad.html">Políticas de privacidad</a>
+      <a href="index.html#">Seguridad</a>
+      <a href="condiciones.html">Condiciones de Servicio</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
+</footer>
+
+<script src="connectors-data.js"></script>
+<script>
+  // La lista de conectores vive en connectors-data.js — edítala ahí
+  // para agregar, quitar o modificar integraciones (nombres, logos, etc).
+  const connectors = (typeof CONNECTORS !== 'undefined') ? CONNECTORS : [];
+
+  const grid = document.getElementById('connectorGrid');
+  const track = document.getElementById('marqueeTrack');
+
+  function markHTML(c){
+    if(c.logo && c.logo.trim() !== ''){
+      return `<div class="mark has-logo"><img src="${c.logo}" alt="${c.name}" loading="lazy"></div>`;
+    }
+    return `<div class="mark">${c.initials}</div>`;
+  }
+
+  function renderGrid(filter){
+    grid.innerHTML = '';
+    connectors
+      .filter(c => filter === 'todos' || c.filters.includes(filter))
+      .forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'connector';
+        el.innerHTML = `
+          <div class="connector-top">
+            ${markHTML(c)}
+            <span class="badge">${c.badge}</span>
+          </div>
+          <div>
+            <div class="name">${c.name}</div>
+            <div class="cat">${c.cat}</div>
+          </div>`;
+        grid.appendChild(el);
+      });
+  }
+
+  function renderMarquee(){
+    const list = [...connectors, ...connectors];
+    track.innerHTML = list.map(c => `
+      <div class="chip">
+        ${markHTML(c)}
+        <span class="name">${c.name}</span>
+      </div>`).join('');
+  }
+
+  document.getElementById('filterRow').addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-pill');
+    if(!btn) return;
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    renderGrid(btn.dataset.filter);
+  });
+
+  renderGrid('todos');
+  renderMarquee();
+</script>
+
+</body>
+</html>
