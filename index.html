@@ -95,6 +95,58 @@
     gap:14px;
   }
 
+  /* ---------- MOBILE MENU ---------- */
+  .menu-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    width:40px;
+    height:40px;
+    border:none;
+    background:none;
+    cursor:pointer;
+    flex-shrink:0;
+    padding:0;
+  }
+  .menu-toggle span{
+    display:block;
+    width:20px;
+    height:2px;
+    background:var(--text);
+    border-radius:2px;
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+  .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#ffffff;
+    border-top:1px solid var(--border);
+    max-height:80vh;
+    overflow-y:auto;
+    box-shadow:0 24px 40px -20px rgba(20,19,31,0.18);
+  }
+  .mobile-menu.open{ display:block; }
+  .mobile-menu-inner{ padding:8px 24px 32px; }
+  .mobile-menu-links{ display:flex; flex-direction:column; }
+  .mobile-menu-links a{
+    padding:16px 2px;
+    font-size:18px;
+    font-weight:500;
+    color:var(--text);
+    border-bottom:1px solid var(--border);
+  }
+  .mobile-menu-cta{ display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+  .mobile-menu-cta .btn{ width:100%; }
+
   .btn{
     display:inline-flex;
     align-items:center;
@@ -472,16 +524,33 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:900px){
+    .nav{ padding:16px 20px; }
     .nav-links{display:none;}
-    .hero h1{font-size:40px; letter-spacing:-1.2px;}
-    .section-head h2{font-size:30px;}
-    .features{grid-template-columns:1fr; gap:48px;}
+    .nav-cta .btn-ghost{ display:none; }
+    .menu-toggle{ display:flex; }
+    .wrap{ padding:0 20px; }
+    .hero{ padding:72px 20px 0; }
+    .hero h1{font-size:36px; letter-spacing:-1.2px;}
+    .hero p.subhead{ font-size:16px; }
+    .hero-mockup{ margin-top:48px; border-radius:20px 20px 0 0; }
+    section{ padding:64px 20px; }
+    .section-head{ margin-bottom:44px; }
+    .section-head h2{font-size:28px;}
+    .features{grid-template-columns:1fr; gap:40px;}
     .feature{border-left:none; padding-left:0;}
     .result-cards{grid-template-columns:1fr;}
-    .integrations{grid-template-columns:1fr;}
-    .app-grid{grid-template-columns:repeat(3,1fr);}
-    .footer-grid{grid-template-columns:1fr; gap:48px;}
-    .final-cta h2{font-size:32px;}
+    .integrations{grid-template-columns:1fr; padding:64px 20px; gap:40px;}
+    .integrations-copy h2{ font-size:28px; }
+    .app-grid{grid-template-columns:repeat(3,1fr); gap:12px;}
+    .app-card{ padding:22px 14px; }
+    .footer-grid{grid-template-columns:1fr; gap:40px;}
+    footer{ padding:56px 20px 32px; }
+    .final-cta h2{font-size:28px;}
+  }
+
+  @media (max-width:480px){
+    .hero h1{ font-size:30px; }
+    .app-grid{ grid-template-columns:repeat(2,1fr); }
   }
 </style>
 </head>
@@ -510,8 +579,25 @@
     <div class="nav-cta">
       <a href="#" class="btn btn-ghost">Iniciar Sesión</a>
       <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-links">
+        <a href="producto.html">Producto</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="integraciones.html">Integraciones</a>
+        <a href="nosotros.html">Nosotros</a>
+      </div>
+      <div class="mobile-menu-cta">
+        <a href="#" class="btn btn-ghost">Iniciar Sesión</a>
+        <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
+      </div>
+    </div>
+  </div>
 </header>
 
 <main>
@@ -633,6 +719,26 @@
   </div>
   <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
 </footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var menu = document.getElementById('mobileMenu');
+    if(!toggle || !menu) return;
+    toggle.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        menu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  })();
+</script>
 
 </body>
 </html>
