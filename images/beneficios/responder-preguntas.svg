@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="640" height="300" rx="14" ry="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="0" y="0" width="640" height="300" fill="#ffffff"/>
+    <rect x="0" y="0" width="640" height="40" fill="#fafafb"/>
+    <line x1="0" y1="40" x2="640" y2="40" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+    <circle cx="20" cy="20.0" r="4.5" fill="#ff5f57"/>
+    <circle cx="36" cy="20.0" r="4.5" fill="#febc2e"/>
+    <circle cx="52" cy="20.0" r="4.5" fill="#28c840"/>
+    <rect x="220" y="9.0" width="200" height="22" rx="6" fill="#f5f6fa"/>
+    <text x="320" y="24.0" text-anchor="middle" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#9494a0">app.plenix.ai/preguntas</text>
+<rect x="26" y="66" width="26" height="26" rx="8" fill="#eef0f7"/><text x="39" y="83" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#57576a" text-anchor="middle">TÚ</text>
+<text x="64" y="76" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">¿Cuál fue el monto total facturado a Banco Itaú en el Q2?</text>
+<rect x="26" y="122" width="26" height="26" rx="8" fill="rgba(0,89,255,0.08)"/><text x="39" y="139" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#0059ff" text-anchor="middle">IA</text>
+<text x="64" y="132" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">El monto total facturado a Banco Itaú durante el</text>
+<text x="64" y="154" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">Q2 2026 fue de $6.404.913 CLP, distribuido en 4</text>
+<text x="64" y="176" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">documentos de cobranza.</text>
+<rect x="64" y="194" width="220" height="26" rx="8" fill="#f5f6fa" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><circle cx="80" cy="207" r="3" fill="#12a394"/><text x="92" y="211" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#57576a">Facturas_Q2_ItauCL.xlsx</text>
+  </g>
+</svg>

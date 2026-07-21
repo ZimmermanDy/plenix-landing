@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="640" height="300" rx="14" ry="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="0" y="0" width="640" height="300" fill="#ffffff"/>
+    <rect x="0" y="0" width="640" height="40" fill="#fafafb"/>
+    <line x1="0" y1="40" x2="640" y2="40" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+    <circle cx="20" cy="20.0" r="4.5" fill="#ff5f57"/>
+    <circle cx="36" cy="20.0" r="4.5" fill="#febc2e"/>
+    <circle cx="52" cy="20.0" r="4.5" fill="#28c840"/>
+    <rect x="220" y="9.0" width="200" height="22" rx="6" fill="#f5f6fa"/>
+    <text x="320" y="24.0" text-anchor="middle" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#9494a0">app.plenix.ai/comparar</text>
+<text x="26" y="70" font-family="JetBrains Mono, Menlo, monospace" font-size="12.5" fill="#57576a">Cláusula 4.2 — Plazo de entrega</text>
+<rect x="20" y="91" width="560" height="24" rx="4" fill="rgba(226,75,74,0.1)"/>
+<text x="26" y="106" font-family="JetBrains Mono, Menlo, monospace" font-size="12.5" fill="#a32d2d" text-decoration="line-through">El plazo de entrega será de 45 días corridos.</text>
+<rect x="20" y="127" width="560" height="24" rx="4" fill="rgba(29,158,117,0.1)"/>
+<text x="26" y="142" font-family="JetBrains Mono, Menlo, monospace" font-size="12.5" fill="#0f6e56">El plazo de entrega será de 30 días hábiles.</text>
+<text x="26" y="178" font-family="JetBrains Mono, Menlo, monospace" font-size="12.5" fill="#57576a">Cláusula 7.1 — Garantía</text>
+<rect x="20" y="199" width="560" height="24" rx="4" fill="rgba(29,158,117,0.1)"/>
+<text x="26" y="214" font-family="JetBrains Mono, Menlo, monospace" font-size="12.5" fill="#0f6e56">Se incorpora garantía extendida de 12 meses.</text>
+<rect x="26" y="258" width="300" height="26" rx="8" fill="#f5f6fa" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><circle cx="42" cy="271" r="3" fill="#12a394"/><text x="54" y="275" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#57576a">v3 vs v4 · Contrato_Suministro.docx</text>
+  </g>
+</svg>

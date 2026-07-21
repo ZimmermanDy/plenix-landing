@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="640" height="300" rx="14" ry="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="0" y="0" width="640" height="300" fill="#ffffff"/>
+    <rect x="0" y="0" width="640" height="40" fill="#fafafb"/>
+    <line x1="0" y1="40" x2="640" y2="40" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+    <circle cx="20" cy="20.0" r="4.5" fill="#ff5f57"/>
+    <circle cx="36" cy="20.0" r="4.5" fill="#febc2e"/>
+    <circle cx="52" cy="20.0" r="4.5" fill="#28c840"/>
+    <rect x="220" y="9.0" width="200" height="22" rx="6" fill="#f5f6fa"/>
+    <text x="320" y="24.0" text-anchor="middle" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#9494a0">app.plenix.ai/fuente</text>
+<text x="26" y="78" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">La política de vacaciones vigente establece 15</text>
+<text x="26" y="100" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">días hábiles progresivos por año trabajado.</text>
+<rect x="26" y="116" width="300" height="26" rx="8" fill="#f5f6fa" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><circle cx="42" cy="129" r="3" fill="#12a394"/><text x="54" y="133" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#57576a">Reglamento_Interno.pdf — pág. 12</text>
+<line x1="26" y1="204" x2="586" y2="204" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+<text x="26" y="188" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">Reglamento_Interno.pdf</text>
+<rect x="486" y="172" width="100" height="22" rx="6" fill="rgba(0,89,255,0.08)"/><text x="536.0" y="187" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#0059ff" text-anchor="middle" letter-spacing="0.3">Abrir fuente</text>
+<line x1="26" y1="252" x2="586" y2="252" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+<text x="26" y="236" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="400" fill="#14131f" text-anchor="start">Política_Vacaciones_2026.docx</text>
+<rect x="486" y="220" width="100" height="22" rx="6" fill="#eef0f7"/><text x="536.0" y="235" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="10" font-weight="600" fill="#57576a" text-anchor="middle" letter-spacing="0.3">Relacionado</text>
+  </g>
+</svg>
