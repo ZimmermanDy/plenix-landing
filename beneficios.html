@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beneficios | Plenix</title>
-<meta name="description" content="Todo lo que Plenix hace por tu empresa: responder preguntas, comparar versiones, resumir documentos, guiar a la fuente correcta y más.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -50,7 +49,7 @@
     text-transform:uppercase; color:var(--teal); margin-bottom:16px; display:block;
   }
 
-  /* ---------- NAV (matches home) ---------- */
+  /* ---------- NAV ---------- */
   header{
     position:sticky; top:0; z-index:100;
     background:rgba(255,255,255,0.85);
@@ -68,35 +67,7 @@
   .nav-links a:hover{ color:var(--text); }
   .nav-links a.active{ color:var(--text); }
   .nav-cta{ display:flex; align-items:center; gap:14px; }
-
-  /* ---------- MOBILE MENU ---------- */
-  .menu-toggle{
-    display:none; flex-direction:column; justify-content:center; align-items:center;
-    gap:5px; width:40px; height:40px; border:none; background:none; cursor:pointer;
-    flex-shrink:0; padding:0;
-  }
-  .menu-toggle span{
-    display:block; width:20px; height:2px; background:var(--text);
-    border-radius:2px; transition:transform .25s ease, opacity .25s ease;
-  }
-  .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-  .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu{
-    display:none; position:absolute; top:100%; left:0; right:0;
-    background:#ffffff; border-top:1px solid var(--border);
-    max-height:80vh; overflow-y:auto; box-shadow:0 24px 40px -20px rgba(20,19,31,0.18);
-  }
-  .mobile-menu.open{ display:block; }
-  .mobile-menu-inner{ padding:8px 24px 32px; }
-  .mobile-menu-links{ display:flex; flex-direction:column; }
-  .mobile-menu-links a{
-    padding:16px 2px; font-size:18px; font-weight:500; color:var(--text);
-    border-bottom:1px solid var(--border);
-  }
-  .mobile-menu-cta{ display:flex; flex-direction:column; gap:12px; margin-top:24px; }
-  .mobile-menu-cta .btn{ width:100%; }
+  .nav-toggle{ display:none; }
 
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
@@ -111,7 +82,7 @@
 
   /* ---------- HERO ---------- */
   .hero{ position:relative; padding:110px 32px 90px; text-align:center; overflow:hidden; }
-    .hero-content{ position:relative; max-width:760px; margin:0 auto; }
+  .hero-content{ position:relative; max-width:760px; margin:0 auto; }
   .hero .eyebrow{ text-align:center; }
   .hero h1{
     font-family:"Inter Tight","Inter",sans-serif;
@@ -123,54 +94,50 @@
     max-width:600px; margin-left:auto; margin-right:auto;
   }
   .hero .cta{ margin-top:32px; display:inline-flex; gap:14px; flex-wrap:wrap; justify-content:center; }
-  
 
-  /* ---------- BENEFITS LIST ---------- */
-  .benefits{ padding:20px 32px 100px; border-top:1px solid var(--border); }
-  .benefits-inner{ max-width:var(--container); margin:0 auto; padding-top:90px; }
-  .section-head{ max-width:640px; margin:0 auto 64px; text-align:center; }
+  /* ---------- SHOWCASE (zigzag) ---------- */
+  .showcase{ padding:20px 32px 100px; border-top:1px solid var(--border); }
+  .showcase-inner{ max-width:var(--container); margin:0 auto; padding-top:90px; }
+  .section-head{ max-width:640px; margin:0 auto 96px; text-align:center; }
   .section-head h2{
     font-family:"Inter Tight","Inter",sans-serif; font-size:32px; font-weight:500;
     letter-spacing:-0.7px; line-height:1.2;
   }
   .section-head p{ margin-top:16px; font-size:16px; line-height:1.6; color:var(--muted); }
 
-  .benefits-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:56px 64px;
+  .showcase-row{
+    display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;
+    margin-bottom:140px;
   }
-  .benefit-item{
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
+  .showcase-row:last-child{ margin-bottom:0; }
+  .showcase-row.reverse .showcase-text{ order:2; }
+  .showcase-row.reverse .showcase-mockup{ order:1; }
+
+  .showcase-text h3{
+    font-family:"Inter Tight","Inter",sans-serif; font-size:28px; font-weight:500;
+    letter-spacing:-0.5px; line-height:1.25; margin-bottom:16px;
   }
-  .benefit-icon{
-    flex-shrink:0;
-    width:52px; height:52px;
+  .showcase-text p{ font-size:16px; line-height:1.75; color:var(--muted); max-width:44ch; }
+
+  /* Cada mockup es una imagen independiente en images/beneficios/.
+     Para reemplazar una, sube un archivo nuevo con el mismo nombre
+     (o cambia el atributo src de la etiqueta <img> correspondiente)
+     sin necesidad de tocar este CSS. */
+  .mockup-img{
+    width:100%;
+    height:auto;
+    display:block;
     border-radius:14px;
-    background:var(--blue-dim);
-    display:flex; align-items:center; justify-content:center;
-    color:var(--blue);
-  }
-  .benefit-icon svg{ width:24px; height:24px; }
-  .benefit-content h3{
-    font-family:"Inter Tight","Inter",sans-serif;
-    font-size:18px; font-weight:600; color:var(--blue); letter-spacing:-0.2px;
-    margin-bottom:10px;
-  }
-  .benefit-content ul{ display:flex; flex-direction:column; gap:6px; }
-  .benefit-content ul li{
-    position:relative; padding-left:16px;
-    font-size:15px; line-height:1.6; color:var(--muted);
-  }
-  .benefit-content ul li::before{
-    content:""; position:absolute; left:0; top:9px;
-    width:5px; height:5px; border-radius:50%; background:var(--muted-2);
+    border:1px solid var(--border);
+    box-shadow:0 50px 90px -50px rgba(20,19,31,0.28);
+    background:#fff;
   }
 
-  @media (max-width:820px){
-    .benefits-grid{ grid-template-columns:1fr; gap:40px; }
+  @media (max-width:900px){
+    .showcase-row{ grid-template-columns:1fr; gap:32px; margin-bottom:72px; }
+    .showcase-row.reverse .showcase-text{ order:unset; }
+    .showcase-row.reverse .showcase-mockup{ order:unset; }
+    .showcase-text p{ max-width:none; }
   }
 
   /* ---------- CTA FINAL ---------- */
@@ -199,7 +166,7 @@
   .final-cta .btn-ghost{ border-color:rgba(255,255,255,0.3); color:#fff; }
   .final-cta .btn-ghost:hover{ border-color:#fff; background:rgba(255,255,255,0.08); }
 
-  /* ---------- FOOTER (matches home) ---------- */
+  /* ---------- FOOTER ---------- */
   footer{ border-top:1px solid var(--border); padding:80px 32px 40px; }
   .footer-grid{
     max-width:var(--container); margin:0 auto;
@@ -212,15 +179,31 @@
   .footer-col a:hover{ color:var(--text); }
   .footer-copy{ text-align:center; margin-top:28px; font-size:13px; color:var(--muted-2); }
 
+  /* ---------- MOBILE NAV ---------- */
   @media (max-width:900px){
-    .nav{ padding:16px 20px; }
     .nav-links{ display:none; }
+    .nav-toggle{
+      display:flex; flex-direction:column; justify-content:center; gap:5px;
+      width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0;
+    }
+    .nav-toggle span{ display:block; width:100%; height:2px; background:var(--text); border-radius:2px; transition:all .2s ease; }
+    .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2){ opacity:0; }
+    .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
     .nav-cta .btn-ghost{ display:none; }
-    .menu-toggle{ display:flex; }
+    .mobile-menu{
+      display:none; flex-direction:column; gap:4px; padding:12px 20px 24px;
+      border-top:1px solid var(--border); background:#fff;
+    }
+    .mobile-menu.open{ display:flex; }
+    .mobile-menu a{ padding:12px 4px; font-size:16px; color:var(--text); border-bottom:1px solid var(--border); }
+    .mobile-menu a:last-child{ border-bottom:none; }
+
     .wrap{ padding:0 20px; }
     .hero{ padding:64px 20px 56px; }
-    .benefits{ padding:16px 20px 64px; }
-    .benefits-inner{ padding-top:56px; }
+    .showcase{ padding:16px 20px 64px; }
+    .showcase-inner{ padding-top:56px; }
+    .section-head{ margin-bottom:56px; }
     .final-cta{ padding:64px 20px; }
     .footer-grid{ grid-template-columns:1fr; gap:40px; }
     footer{ padding:56px 20px 32px; }
@@ -252,24 +235,16 @@
     <div class="nav-cta">
       <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
       <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <div class="mobile-menu-links">
-        <a href="producto.html">Producto</a>
-        <a href="beneficios.html" class="active">Beneficios</a>
-        <a href="integraciones.html">Integraciones</a>
-        <a href="nosotros.html">Nosotros</a>
-      </div>
-      <div class="mobile-menu-cta">
-        <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
-        <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      </div>
-    </div>
+    <a href="producto.html">Producto</a>
+    <a href="beneficios.html">Beneficios</a>
+    <a href="integraciones.html">Integraciones</a>
+    <a href="nosotros.html">Nosotros</a>
+    <a href="index.html">Iniciar Sesión</a>
+    <a href="demo.html">Agenda Demo</a>
   </div>
 </header>
 
@@ -287,87 +262,80 @@
     </div>
   </section>
 
-  <!-- BENEFITS LIST -->
-  <section class="benefits">
-    <div class="benefits-inner">
+  <!-- SHOWCASE -->
+  <section class="showcase">
+    <div class="showcase-inner">
       <div class="section-head">
         <h2>Un asistente, seis formas de ahorrar tiempo</h2>
         <p>Cada interacción con Plenix está diseñada para devolverte horas de trabajo manual, sin cambiar las herramientas que ya usas.</p>
       </div>
 
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="15" x2="12.01" y2="15"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Responder preguntas</h3>
-            <ul>
-              <li>Responde dudas internas sobre procesos, documentos, métricas y proyectos usando información real de la empresa.</li>
-            </ul>
-          </div>
+      <!-- 1. Responder preguntas -->
+      <div class="showcase-row">
+        <div class="showcase-text">
+          <h3>Responder preguntas</h3>
+          <p>Responde dudas internas sobre procesos, documentos, métricas y proyectos usando información real de la empresa.</p>
         </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6l3 4v11a1 1 0 0 1-1 1H9"/><path d="M9 3v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7l4-4h2"/><line x1="13" y1="9" x2="17" y2="9"/><line x1="13" y1="13" x2="17" y2="13"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Comparar versiones</h3>
-            <ul>
-              <li>Identifica diferencias entre documentos, contratos o reportes para acelerar revisión y control de cambios.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="13" y2="17"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Resumir documentos</h3>
-            <ul>
-              <li>Condensa documentos extensos en ideas clave, decisiones, riesgos y próximos pasos.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.5 9 15l1.5-5.5L15 9.5z" fill="currentColor" stroke="none"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Guiar al usuario a la fuente correcta</h3>
-            <ul>
-              <li>Lleva al usuario al documento, sistema o registro exacto donde está la información correcta.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Buscar información</h3>
-            <ul>
-              <li>Encuentra conocimiento distribuido entre múltiples herramientas, incluso sin conocer el nombre exacto del archivo.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="benefit-item">
-          <div class="benefit-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11a4 4 0 0 1 4-4h1v7H7a4 4 0 0 1-4-4z"/><path d="M21 11a4 4 0 0 0-4-4h-1v7h1a4 4 0 0 0 4-4z"/><path d="M8 17a4 4 0 0 0 8 0"/></svg>
-          </div>
-          <div class="benefit-content">
-            <h3>Servicio &amp; Soporte</h3>
-            <ul>
-              <li>Asiste a usuarios internos con respuestas rápidas, consistentes y basadas en fuentes confiables.</li>
-            </ul>
-          </div>
+        <div class="showcase-mockup">
+          <img class="mockup-img" src="images/beneficios/responder-preguntas.svg" alt="Plenix respondiendo una pregunta interna con una cita a la fuente del documento">
         </div>
       </div>
+
+      <!-- 2. Comparar versiones -->
+      <div class="showcase-row reverse">
+        <div class="showcase-text">
+          <h3>Comparar versiones</h3>
+          <p>Identifica diferencias entre documentos, contratos o reportes para acelerar revisión y control de cambios.</p>
+        </div>
+        <div class="showcase-mockup">
+          <img class="mockup-img" src="images/beneficios/comparar-versiones.svg" alt="Comparación de dos versiones de un contrato mostrando cambios agregados y eliminados">
+        </div>
+      </div>
+
+      <!-- 3. Resumir documentos -->
+      <div class="showcase-row">
+        <div class="showcase-text">
+          <h3>Resumir documentos</h3>
+          <p>Condensa documentos extensos en ideas clave, decisiones, riesgos y próximos pasos.</p>
+        </div>
+        <div class="showcase-mockup">
+          <img class="mockup-img" src="images/beneficios/resumir-documentos.svg" alt="Plenix generando el resumen de una minuta con ideas clave en formato de lista">
+        </div>
+      </div>
+
+      <!-- 4. Guiar a la fuente correcta -->
+      <div class="showcase-row reverse">
+        <div class="showcase-text">
+          <h3>Guiar al usuario a la fuente correcta</h3>
+          <p>Lleva al usuario al documento, sistema o registro exacto donde está la información correcta.</p>
+        </div>
+        <div class="showcase-mockup">
+          <img class="mockup-img" src="images/beneficios/guiar-fuente.svg" alt="Plenix mostrando el documento fuente exacto y enlaces relacionados">
+        </div>
+      </div>
+
+      <!-- 5. Buscar información -->
+      <div class="showcase-row">
+        <div class="showcase-text">
+          <h3>Buscar información</h3>
+          <p>Encuentra conocimiento distribuido entre múltiples herramientas, incluso sin conocer el nombre exacto del archivo.</p>
+        </div>
+        <div class="showcase-mockup">
+          <img class="mockup-img" src="images/beneficios/buscar-informacion.svg" alt="Búsqueda de Plenix mostrando resultados desde Drive, Slack y Notion">
+        </div>
+      </div>
+
+      <!-- 6. Servicio & Soporte -->
+      <div class="showcase-row reverse">
+        <div class="showcase-text">
+          <h3>Servicio &amp; Soporte</h3>
+          <p>Asiste a usuarios internos con respuestas rápidas, consistentes y basadas en fuentes confiables.</p>
+        </div>
+        <div class="showcase-mockup">
+          <img class="mockup-img" src="images/beneficios/servicio-soporte.svg" alt="Ticket de soporte con una respuesta sugerida automáticamente por Plenix">
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -388,7 +356,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <span class="eyebrow">PLENIX</span>
-      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda aumentar la productividad.</p>
+      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda a trabajar más inteligentemente.</p>
     </div>
     <div class="footer-col">
       <h4>Plenix</h4>
@@ -408,20 +376,12 @@
 
 <script>
   (function(){
-    var toggle = document.getElementById('menuToggle');
+    var toggle = document.getElementById('navToggle');
     var menu = document.getElementById('mobileMenu');
     if(!toggle || !menu) return;
     toggle.addEventListener('click', function(){
-      var isOpen = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    menu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
+      toggle.classList.toggle('open');
+      menu.classList.toggle('open');
     });
   })();
 </script>
