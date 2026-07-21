@@ -26,20 +26,27 @@
                 local a un archivo que subas junto a este sitio,
                 por ejemplo "logos/slack.svg".
 
+    home      → (opcional) true para que este conector tambien
+                aparezca en la seccion "Contecta con tus Apps" del
+                home (index.html). Si lo omites o lo dejas en false,
+                el conector solo aparece en la pagina de Integraciones.
+
   Para quitar un conector, borra su bloque completo (incluyendo
   la coma que lo separa del siguiente).
 */
 
 const CONNECTORS = [
   { name:"Google Workspace", cat:"Popular", filters:["popular","comunicacion","documentos"], badge:"Nativo", initials:"GW", logo:"" },
-  { name:"Slack", cat:"Comunicación", filters:["popular","comunicacion"], badge:"Nativo", initials:"SL", logo:"" },
-  { name:"Microsoft Teams", cat:"Comunicación", filters:["popular","comunicacion"], badge:"Nativo", initials:"MT", logo:"" },
+  { name:"Slack", cat:"Comunicación", filters:["popular","comunicacion"], badge:"Nativo", initials:"SL", logo:"" , home:true },
+  { name:"Microsoft Teams", cat:"Comunicación", filters:["popular","comunicacion"], badge:"Nativo", initials:"MT", logo:"" , home:true },
   { name:"Notion", cat:"Documentos", filters:["popular","documentos"], badge:"Nativo", initials:"NO", logo:"" },
   { name:"Salesforce", cat:"Ventas & CRM", filters:["popular","ventas"], badge:"API", initials:"SF", logo:"" },
-  { name:"Jira", cat:"Desarrollo", filters:["popular","desarrollo"], badge:"Nativo", initials:"JI", logo:"" },
+  { name:"Jira", cat:"Desarrollo", filters:["popular","desarrollo"], badge:"Nativo", initials:"JI", logo:"" , home:true },
   { name:"Gmail", cat:"Comunicación", filters:["comunicacion"], badge:"Nativo", initials:"GM", logo:"" },
   { name:"Outlook", cat:"Comunicación", filters:["comunicacion"], badge:"Nativo", initials:"OU", logo:"" },
-  { name:"Google Drive", cat:"Documentos", filters:["documentos"], badge:"Nativo", initials:"GD", logo:"" },
+  { name:"Google Drive", cat:"Documentos", filters:["documentos"], badge:"Nativo", initials:"GD", logo:"" , home:true },
+  { name:"Shopify", cat:"Ventas & CRM", filters:["ventas"], badge:"API", initials:"SH", logo:"", home:true },
+  { name:"Bsale", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"BS", logo:"", home:true },
   { name:"SharePoint", cat:"Documentos", filters:["documentos"], badge:"Nativo", initials:"SP", logo:"" },
   { name:"OneDrive", cat:"Documentos", filters:["documentos"], badge:"API", initials:"OD", logo:"" },
   { name:"Dropbox", cat:"Documentos", filters:["documentos"], badge:"API", initials:"DB", logo:"" },
