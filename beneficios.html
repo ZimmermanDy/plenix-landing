@@ -56,6 +56,7 @@
     backdrop-filter:blur(12px);
     border-bottom:1px solid var(--border);
   }
+  .nav{ position:relative; }
   .nav{
     display:flex; align-items:center; justify-content:space-between;
     padding:20px 32px; max-width:var(--container); margin:0 auto;
@@ -67,7 +68,28 @@
   .nav-links a:hover{ color:var(--text); }
   .nav-links a.active{ color:var(--text); }
   .nav-cta{ display:flex; align-items:center; gap:14px; }
-  .nav-toggle{ display:none; }
+
+  .menu-toggle{
+    display:none; flex-direction:column; justify-content:center; gap:5px;
+    width:40px; height:40px; background:none; border:none; cursor:pointer; padding:0;
+  }
+  .menu-toggle span{ display:block; width:20px; height:2px; margin:0 auto; background:var(--text); border-radius:2px; transition:all .2s ease; }
+  .menu-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2){ opacity:0; }
+  .menu-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu{
+    display:none; position:absolute; top:100%; left:0; right:0;
+    background:#fff; border-top:1px solid var(--border);
+    max-height:80vh; overflow-y:auto;
+    box-shadow:0 24px 40px -20px rgba(20,19,31,0.18);
+  }
+  .mobile-menu.open{ display:block; }
+  .mobile-menu-inner{ padding:8px 24px 32px; }
+  .mobile-menu-links{ display:flex; flex-direction:column; }
+  .mobile-menu-links a{ padding:16px 2px; font-size:18px; font-weight:500; color:var(--text); border-bottom:1px solid var(--border); }
+  .mobile-menu-cta{ display:flex; flex-direction:column; gap:12px; margin-top:24px; }
+  .mobile-menu-cta .btn{ width:100%; }
 
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
@@ -182,22 +204,8 @@
   /* ---------- MOBILE NAV ---------- */
   @media (max-width:900px){
     .nav-links{ display:none; }
-    .nav-toggle{
-      display:flex; flex-direction:column; justify-content:center; gap:5px;
-      width:32px; height:32px; background:none; border:none; cursor:pointer; padding:0;
-    }
-    .nav-toggle span{ display:block; width:100%; height:2px; background:var(--text); border-radius:2px; transition:all .2s ease; }
-    .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-    .nav-toggle.open span:nth-child(2){ opacity:0; }
-    .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+    .menu-toggle{ display:flex; }
     .nav-cta .btn-ghost{ display:none; }
-    .mobile-menu{
-      display:none; flex-direction:column; gap:4px; padding:12px 20px 24px;
-      border-top:1px solid var(--border); background:#fff;
-    }
-    .mobile-menu.open{ display:flex; }
-    .mobile-menu a{ padding:12px 4px; font-size:16px; color:var(--text); border-bottom:1px solid var(--border); }
-    .mobile-menu a:last-child{ border-bottom:none; }
 
     .wrap{ padding:0 20px; }
     .hero{ padding:64px 20px 56px; }
@@ -235,16 +243,22 @@
     <div class="nav-cta">
       <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
       <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="producto.html">Producto</a>
-    <a href="beneficios.html">Beneficios</a>
-    <a href="integraciones.html">Integraciones</a>
-    <a href="nosotros.html">Nosotros</a>
-    <a href="index.html">Iniciar Sesión</a>
-    <a href="demo.html">Agenda Demo</a>
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-links">
+        <a href="producto.html">Producto</a>
+        <a href="beneficios.html">Beneficios</a>
+        <a href="integraciones.html">Integraciones</a>
+        <a href="nosotros.html">Nosotros</a>
+      </div>
+      <div class="mobile-menu-cta">
+        <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
+        <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -376,12 +390,13 @@
 
 <script>
   (function(){
-    var toggle = document.getElementById('navToggle');
+    var toggle = document.getElementById('menuToggle');
     var menu = document.getElementById('mobileMenu');
     if(!toggle || !menu) return;
     toggle.addEventListener('click', function(){
-      toggle.classList.toggle('open');
-      menu.classList.toggle('open');
+      var isOpen = toggle.classList.toggle('open');
+      menu.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
   })();
 </script>
