@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plenix - Toda la información de tu empresa en un solo lugar</title>
-<meta name="description" content="La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda aumentar la productividad.">
+<meta name="description" content="La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda a trabajar más inteligentemente.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@
 
   *{box-sizing:border-box; margin:0; padding:0;}
 
-  html{scroll-behavior:smooth; overflow-x:hidden;}
+  html{scroll-behavior:smooth;}
 
   body{
     background:var(--bg);
@@ -95,58 +95,6 @@
     gap:14px;
   }
 
-  /* ---------- MOBILE MENU ---------- */
-  .menu-toggle{
-    display:none;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:5px;
-    width:40px;
-    height:40px;
-    border:none;
-    background:none;
-    cursor:pointer;
-    flex-shrink:0;
-    padding:0;
-  }
-  .menu-toggle span{
-    display:block;
-    width:20px;
-    height:2px;
-    background:var(--text);
-    border-radius:2px;
-    transition:transform .25s ease, opacity .25s ease;
-  }
-  .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-  .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    background:#ffffff;
-    border-top:1px solid var(--border);
-    max-height:80vh;
-    overflow-y:auto;
-    box-shadow:0 24px 40px -20px rgba(20,19,31,0.18);
-  }
-  .mobile-menu.open{ display:block; }
-  .mobile-menu-inner{ padding:8px 24px 32px; }
-  .mobile-menu-links{ display:flex; flex-direction:column; }
-  .mobile-menu-links a{
-    padding:16px 2px;
-    font-size:18px;
-    font-weight:500;
-    color:var(--text);
-    border-bottom:1px solid var(--border);
-  }
-  .mobile-menu-cta{ display:flex; flex-direction:column; gap:12px; margin-top:24px; }
-  .mobile-menu-cta .btn{ width:100%; }
-
   .btn{
     display:inline-flex;
     align-items:center;
@@ -188,7 +136,19 @@
     text-align:center;
     overflow:hidden;
   }
-    .hero-content{
+  .hero::before{
+    content:"";
+    position:absolute;
+    top:-200px;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+    height:600px;
+    background:radial-gradient(ellipse at center, rgba(0,89,255,0.12) 0%, rgba(18,163,148,0.07) 40%, transparent 70%);
+    pointer-events:none;
+    filter:blur(10px);
+  }
+  .hero-content{
     position:relative;
     max-width:900px;
     margin:0 auto;
@@ -213,6 +173,9 @@
   .hero .cta{
     margin-top:36px;
     display:inline-flex;
+  }
+  .hero .cta .btn-primary{
+    box-shadow:0 0 40px rgba(0,89,255,0.45);
   }
 
   /* Hero mockup card */
@@ -428,19 +391,22 @@
     font-size:14px;
     color:var(--muted);
   }
-  .app-card .mark{
-    width:44px; height:44px; border-radius:12px; background:var(--panel-2);
-    display:flex; align-items:center; justify-content:center; overflow:hidden;
-    font-family:"Inter Tight","Inter",sans-serif; font-weight:600; font-size:14px; color:var(--text);
-  }
-  .app-card .mark.has-logo{ background:#FFFFFF; border:1px solid var(--border); }
-  .app-card .mark.has-logo img{ width:100%; height:100%; object-fit:contain; padding:6px; }
 
   /* ---------- FINAL CTA ---------- */
   .final-cta{
     text-align:center;
     position:relative;
-    overflow:hidden;
+  }
+  .final-cta::before{
+    content:"";
+    position:absolute;
+    top:20%;
+    left:50%;
+    transform:translateX(-50%);
+    width:700px;
+    height:400px;
+    background:radial-gradient(ellipse at center, rgba(0,89,255,0.18) 0%, transparent 70%);
+    pointer-events:none;
   }
   .final-cta .inner{position:relative;}
   .final-cta h2{
@@ -459,6 +425,9 @@
   }
   .final-cta .cta{
     margin-top:36px;
+  }
+  .final-cta .btn-primary{
+    box-shadow:0 0 40px rgba(0,89,255,0.45);
   }
 
   /* ---------- FOOTER ---------- */
@@ -503,33 +472,16 @@
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:900px){
-    .nav{ padding:16px 20px; }
     .nav-links{display:none;}
-    .nav-cta .btn-ghost{ display:none; }
-    .menu-toggle{ display:flex; }
-    .wrap{ padding:0 20px; }
-    .hero{ padding:72px 20px 0; }
-    .hero h1{font-size:36px; letter-spacing:-1.2px;}
-    .hero p.subhead{ font-size:16px; }
-    .hero-mockup{ margin-top:48px; border-radius:20px 20px 0 0; }
-    section{ padding:64px 20px; }
-    .section-head{ margin-bottom:44px; }
-    .section-head h2{font-size:28px;}
-    .features{grid-template-columns:1fr; gap:40px;}
+    .hero h1{font-size:40px; letter-spacing:-1.2px;}
+    .section-head h2{font-size:30px;}
+    .features{grid-template-columns:1fr; gap:48px;}
     .feature{border-left:none; padding-left:0;}
     .result-cards{grid-template-columns:1fr;}
-    .integrations{grid-template-columns:1fr; padding:64px 20px; gap:40px;}
-    .integrations-copy h2{ font-size:28px; }
-    .app-grid{grid-template-columns:repeat(3,1fr); gap:12px;}
-    .app-card{ padding:22px 14px; }
-    .footer-grid{grid-template-columns:1fr; gap:40px;}
-    footer{ padding:56px 20px 32px; }
-    .final-cta h2{font-size:28px;}
-  }
-
-  @media (max-width:480px){
-    .hero h1{ font-size:30px; }
-    .app-grid{ grid-template-columns:repeat(2,1fr); }
+    .integrations{grid-template-columns:1fr;}
+    .app-grid{grid-template-columns:repeat(3,1fr);}
+    .footer-grid{grid-template-columns:1fr; gap:48px;}
+    .final-cta h2{font-size:32px;}
   }
 </style>
 </head>
@@ -538,15 +490,7 @@
 <header>
   <nav class="nav">
     <a href="#" class="logo">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#8CF5C7"/>
-            <stop offset="100%" stop-color="#1FAE7A"/>
-          </linearGradient>
-        </defs>
-        <path d="M4 8 L28 8 L20 15 L28 15 L20 22 L28 22 L16 30 L4 22 L12 22 L4 15 L12 15 Z" fill="url(#logoGrad)"/>
-      </svg>
+      <img class="logo-mark" src="logo.svg" alt="Plenix">
       Plenix
     </a>
     <div class="nav-links">
@@ -558,25 +502,8 @@
     <div class="nav-cta">
       <a href="#" class="btn btn-ghost">Iniciar Sesión</a>
       <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <div class="mobile-menu-links">
-        <a href="producto.html">Producto</a>
-        <a href="beneficios.html">Beneficios</a>
-        <a href="integraciones.html">Integraciones</a>
-        <a href="nosotros.html">Nosotros</a>
-      </div>
-      <div class="mobile-menu-cta">
-        <a href="#" class="btn btn-ghost">Iniciar Sesión</a>
-        <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <main>
@@ -584,7 +511,7 @@
   <section class="hero" style="border-top:none; padding-bottom:0;">
     <div class="hero-content">
       <h1>Todo el conocimiento de tu empresa en un sólo lugar</h1>
-      <p class="subhead">Centraliza la información de tu empresa para acceder de manera rápida y segura en segundos.</p>
+      <p class="subhead">Centraliza la información de tu empresa para acceder de manera rápida y segura en segundos</p>
       <div class="cta">
         <a href="demo.html" class="btn btn-primary btn-lg">Agenda Demo</a>
       </div>
@@ -636,7 +563,32 @@
         <h2>Contecta con tus Apps</h2>
         <p>Conecta Plenix en minutos y comienza a buscar en todas tus fuentes de datos al instante.</p>
       </div>
-      <div class="app-grid" id="appGrid"></div>
+      <div class="app-grid">
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 48 48"><path fill="#4285F4" d="M14 6h20l14 24-10 12H10L0 30z"/><path fill="#34A853" d="M14 6l14 24H10L0 30z" opacity="0"/><path fill="#FBBC05" d="M0 30l10 12h24L24 30z"/><path fill="#EA4335" d="M34 6L24 24l10 18 14-24z" opacity="0"/><path fill="#34A853" d="M14 6L0 30h14l7-12z"/><path fill="#FBBC05" d="M14 42h20l7-12H10z" opacity=".001"/><path fill="#EA4335" d="M34 6H14l7 12h13z"/><path fill="#4285F4" d="M34 6l14 24-10 12L24 24z"/></svg>
+          <span>Google Drive</span>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 48 48"><path d="M32 12h-4V9a5 5 0 0 0-10 0v3h-4a3 3 0 0 0-3 3l-2 22a3 3 0 0 0 3 3.3h22a3 3 0 0 0 3-3.3l-2-22a3 3 0 0 0-3-3zM21 9a3 3 0 0 1 6 0v3h-6z" fill="#95BF47"/><circle cx="19" cy="19" r="2.4" fill="#fff"/><circle cx="29" cy="19" r="2.4" fill="#fff"/></svg>
+          <span>Shopify</span>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 48 48"><rect x="9" y="19" width="7" height="19" rx="3.4" fill="#36C5F0"/><rect x="9" y="9" width="19" height="7" rx="3.4" fill="#36C5F0" transform="rotate(90 9 9)" opacity="0"/><rect x="19" y="9" width="7" height="19" rx="3.4" fill="#2EB67D"/><rect x="22" y="9" width="19" height="7" rx="3.4" fill="#ECB22E"/><rect x="32" y="19" width="7" height="19" rx="3.4" fill="#E01E5A"/><rect x="9" y="32" width="19" height="7" rx="3.4" fill="#36C5F0"/><rect x="19" y="22" width="19" height="7" rx="3.4" fill="#ECB22E"/></svg>
+          <span>Slack</span>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 48 48"><rect x="6" y="6" width="16" height="16" fill="#F35325"/><rect x="26" y="6" width="16" height="16" fill="#81BC06"/><rect x="6" y="26" width="16" height="16" fill="#05A6F0"/><rect x="26" y="26" width="16" height="16" fill="#FFBA08"/></svg>
+          <span>Microsoft</span>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 48 48"><path d="M10 30 L26 10 L34 10 L18 30 L26 30 L14 44 L6 44 L20 26 L12 26 Z" fill="#FF6A1A"/></svg>
+          <span>Bsale</span>
+        </div>
+        <div class="app-card">
+          <svg class="app-icon" viewBox="0 0 48 48"><rect x="17" y="17" width="14" height="14" fill="#2684FF" transform="rotate(45 24 24)"/></svg>
+          <span>Jira</span>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -656,7 +608,7 @@
   <div class="footer-grid">
     <div class="footer-brand">
       <span class="eyebrow">PLENIX</span>
-      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda aumentar la productividad.</p>
+      <p>La plataforma de búsqueda empresarial potenciada por IA que conecta toda tu información y te ayuda a trabajar más inteligentemente.</p>
     </div>
     <div class="footer-col">
       <h4>Plenix</h4>
@@ -673,50 +625,6 @@
   </div>
   <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
 </footer>
-
-<script src="connectors-data.js"></script>
-<script>
-  (function(){
-    var toggle = document.getElementById('menuToggle');
-    var menu = document.getElementById('mobileMenu');
-    if(!toggle || !menu) return;
-    toggle.addEventListener('click', function(){
-      var isOpen = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    menu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-  })();
-
-  // Los logos/nombres de esta sección viven en connectors-data.js —
-  // edítalo ahí (marca home:true) para agregar, quitar o cambiar los
-  // que aparecen en "Contecta con tus Apps".
-  (function(){
-    var grid = document.getElementById('appGrid');
-    if(!grid) return;
-    var connectors = (typeof CONNECTORS !== 'undefined') ? CONNECTORS : [];
-
-    function markHTML(c){
-      if(c.logo && c.logo.trim() !== ''){
-        return '<div class="mark has-logo"><img src="' + c.logo + '" alt="' + c.name + '" loading="lazy"></div>';
-      }
-      return '<div class="mark">' + c.initials + '</div>';
-    }
-
-    grid.innerHTML = connectors
-      .filter(function(c){ return c.home; })
-      .map(function(c){
-        return '<div class="app-card">' + markHTML(c) + '<span>' + c.name + '</span></div>';
-      })
-      .join('');
-  })();
-</script>
 
 </body>
 </html>
