@@ -196,7 +196,7 @@
     transition:background .15s ease;
   }
   .connector:hover{ background:var(--panel); }
-  .connector-top{ display:flex; align-items:flex-start; justify-content:space-between; }
+  .connector-top{ display:flex; align-items:flex-start; }
   .connector .mark{
     width:44px; height:44px; border-radius:12px; background:var(--panel-2);
     display:flex; align-items:center; justify-content:center; overflow:hidden;
@@ -205,10 +205,6 @@
   .mark.has-logo{ background:#FFFFFF; border:1px solid var(--border); }
   .mark.has-logo img{ width:100%; height:100%; object-fit:contain; padding:6px; }
   .chip .mark.has-logo img{ padding:4px; }
-  .connector .badge{
-    font-size:11px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase;
-    color:var(--teal); background:var(--teal-dim); border-radius:6px; padding:4px 8px;
-  }
   .connector .name{ font-size:0.98rem; font-weight:500; color:var(--text); }
   .connector .cat{ font-size:0.82rem; color:var(--muted-2); }
   @media (max-width:980px){ .connector-grid{ grid-template-columns:repeat(2, 1fr); } }
@@ -462,7 +458,6 @@
         el.innerHTML = `
           <div class="connector-top">
             ${markHTML(c)}
-            <span class="badge">${c.badge}</span>
           </div>
           <div>
             <div class="name">${c.name}</div>
