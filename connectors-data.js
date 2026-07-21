@@ -40,7 +40,6 @@ const CONNECTORS = [
   { name:"Slack", cat:"Comunicación", filters:["popular","comunicacion"], badge:"Nativo", initials:"SL", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/slack-icon.svg" , home:true },
   { name:"Microsoft Teams", cat:"Comunicación", filters:["popular","comunicacion"], badge:"Nativo", initials:"MT", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/microsoft-teams.svg" , home:true },
   { name:"Notion", cat:"Documentos", filters:["popular","documentos"], badge:"Nativo", initials:"NO", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/notion-icon.svg" },
-  { name:"Salesforce", cat:"Ventas & CRM", filters:["popular","ventas"], badge:"API", initials:"SF", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/salesforce.svg" },
   { name:"Jira", cat:"Desarrollo", filters:["popular","desarrollo"], badge:"Nativo", initials:"JI", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/jira.svg" , home:true },
   { name:"Gmail", cat:"Comunicación", filters:["comunicacion"], badge:"Nativo", initials:"GM", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/google-gmail.svg" },
   { name:"Outlook", cat:"Comunicación", filters:["comunicacion"], badge:"Nativo", initials:"OU", logo:"https://upload.wikimedia.org/wikipedia/commons/c/cc/Microsoft_Outlook_Icon_%282025%E2%80%93present%29.svg" },
@@ -51,19 +50,6 @@ const CONNECTORS = [
   { name:"OneDrive", cat:"Documentos", filters:["documentos"], badge:"API", initials:"OD", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/microsoft-onedrive.svg" },
   { name:"Dropbox", cat:"Documentos", filters:["documentos"], badge:"API", initials:"DB", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/dropbox.svg" },
   { name:"Confluence", cat:"Documentos", filters:["documentos","desarrollo"], badge:"Nativo", initials:"CO", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/confluence.svg" },
-  { name:"Buk", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"Nativo", initials:"BK", logo:"https://icons.duckduckgo.com/ip3/buk.cl.ico" },
-  { name:"Defontana", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"DF", logo:"https://icons.duckduckgo.com/ip3/defontana.com.ico" },
-  { name:"Manager ERP", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"MG", logo:"https://icons.duckduckgo.com/ip3/manager.cl.ico" },
-  { name:"SII", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"SI", logo:"https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_de_Servicio_de_Impuestos_Internos.svg" },
-  { name:"Rex", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"RX", logo:"https://icons.duckduckgo.com/ip3/redrrhh.cl.ico" },
-  { name:"HubSpot", cat:"Ventas & CRM", filters:["ventas"], badge:"Nativo", initials:"HS", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/hubspot.svg" },
   { name:"GitHub", cat:"Desarrollo", filters:["desarrollo"], badge:"Nativo", initials:"GH", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/github-icon.svg" },
-  { name:"GitLab", cat:"Desarrollo", filters:["desarrollo"], badge:"API", initials:"GL", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/gitlab-icon.svg" },
-  { name:"Google Calendar", cat:"Productividad", filters:["productividad"], badge:"Nativo", initials:"GC", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/google-calendar.svg" },
-  { name:"Zoom", cat:"Productividad", filters:["productividad","comunicacion"], badge:"API", initials:"ZM", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/zoom-icon.svg" },
-  { name:"Asana", cat:"Productividad", filters:["productividad"], badge:"API", initials:"AS", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/asana-icon.svg" },
-  { name:"Trello", cat:"Productividad", filters:["productividad"], badge:"API", initials:"TR", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/trello.svg" },
-  { name:"Google SSO", cat:"Single Sign-On", filters:["sso"], badge:"Nativo", initials:"GS", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/google-icon.svg" },
-  { name:"Microsoft Entra ID", cat:"Single Sign-On", filters:["sso"], badge:"Nativo", initials:"EN", logo:"https://upload.wikimedia.org/wikipedia/commons/8/8c/Microsoft_Entra_ID_color_icon.svg" },
-  { name:"Okta", cat:"Single Sign-On", filters:["sso"], badge:"Nativo", initials:"OK", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/okta-icon.svg" }
+  { name:"Google Calendar", cat:"Productividad", filters:["productividad"], badge:"Nativo", initials:"GC", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/google-calendar.svg" }
 ];
