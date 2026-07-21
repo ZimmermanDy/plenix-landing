@@ -55,7 +55,7 @@ const CONNECTORS = [
   { name:"Defontana", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"DF", logo:"https://icons.duckduckgo.com/ip3/defontana.com.ico" },
   { name:"Manager ERP", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"MG", logo:"https://icons.duckduckgo.com/ip3/manager.cl.ico" },
   { name:"SII", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"SI", logo:"https://upload.wikimedia.org/wikipedia/commons/b/bb/Logo_de_Servicio_de_Impuestos_Internos.svg" },
-  { name:"Rex", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"RX", logo:"https://icons.duckduckgo.com/ip3/rexmas.com.ico" },
+  { name:"Rex", cat:"RR.HH. & Finanzas", filters:["rrhh-finanzas"], badge:"API", initials:"RX", logo:"https://icons.duckduckgo.com/ip3/redrrhh.cl.ico" },
   { name:"HubSpot", cat:"Ventas & CRM", filters:["ventas"], badge:"Nativo", initials:"HS", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/hubspot.svg" },
   { name:"GitHub", cat:"Desarrollo", filters:["desarrollo"], badge:"Nativo", initials:"GH", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/github-icon.svg" },
   { name:"GitLab", cat:"Desarrollo", filters:["desarrollo"], badge:"API", initials:"GL", logo:"https://cdn.jsdelivr.net/gh/gilbarbara/logos@42037415f0df19cd82b3853c18a967a81783f921/logos/gitlab-icon.svg" },
