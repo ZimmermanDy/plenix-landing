@@ -231,10 +231,18 @@
   .integrations-head h2{ font-size:clamp(1.7rem, 3.2vw, 2.3rem); letter-spacing:-0.7px; }
   .pill-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:760px; margin:0 auto; }
   .pill{
+    display:inline-flex; align-items:center; gap:9px;
     font-size:0.9rem; font-weight:500; color:var(--text);
-    background:#FFFFFF; border:1px solid var(--border-strong); border-radius:20px; padding:9px 18px;
+    background:#FFFFFF; border:1px solid var(--border-strong); border-radius:20px; padding:8px 18px 8px 8px;
   }
-  .pill.muted{ color:var(--muted); border-color:var(--border); }
+  .pill.muted{ color:var(--muted); border-color:var(--border); padding:9px 18px; }
+  .pill .mark{
+    width:22px; height:22px; border-radius:7px; background:var(--panel-2);
+    display:flex; align-items:center; justify-content:center; overflow:hidden; flex-shrink:0;
+    font-family:"Inter Tight","Inter",sans-serif; font-weight:600; font-size:9px; color:var(--text);
+  }
+  .pill .mark.has-logo{ background:#FFFFFF; border:1px solid var(--border); }
+  .pill .mark.has-logo img{ width:100%; height:100%; object-fit:contain; padding:3px; }
   .integrations-foot{ text-align:center; margin-top:32px; }
   .integrations-foot a{ font-size:0.92rem; color:var(--blue); text-decoration:underline; }
   .integrations-foot a:hover{ color:var(--blue-hover); }
@@ -497,16 +505,14 @@
       <div class="eyebrow center">Integraciones</div>
       <h2>Se conecta a lo que ya usas</h2>
     </div>
-    <div class="pill-row">
-      <span class="pill">Buk</span>
-      <span class="pill">Defontana</span>
-      <span class="pill">Manager ERP</span>
-      <span class="pill">SII</span>
-      <span class="pill">Google Workspace</span>
-      <span class="pill">Slack</span>
-      <span class="pill">Notion</span>
-      <span class="pill">Jira</span>
-      <span class="pill">Salesforce</span>
+    <!--
+      La fila de íconos de abajo se genera automáticamente desde
+      connectors-data.js (mismo archivo que usa la página de
+      Integraciones). Para agregar, quitar o reordenar una app,
+      edita la lista PRODUCT_PILLS en el script al final de esta
+      página — no hace falta tocar este HTML.
+    -->
+    <div class="pill-row" id="pillRow">
       <span class="pill muted">+ 50 herramientas más</span>
     </div>
     <div class="integrations-foot">
@@ -532,7 +538,7 @@
       </div>
       <div class="badge">
         <div class="t">Ley 21.719 (Chile)</div>
-        <div class="d">Alineados a la normativa de protección de datos personales de Chile.</div>
+        <div class="d">Estamos preparando el cumplimiento: mapa de flujos de datos, retención y derechos ARCO+ con cada proveedor.</div>
       </div>
       <div class="badge">
         <div class="t">Sin entrenar IA con tus datos</div>
@@ -575,6 +581,27 @@
   <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
 </footer>
 
+<script src="connectors-data.js"></script>
+<script>
+  (function(){
+    // Nombres y orden de las apps que se muestran en "Se conecta a lo que ya usas".
+    // Edita esta lista para agregar/quitar/reordenar — los íconos y datos
+    // se toman automáticamente de connectors-data.js (CONNECTORS).
+    var PRODUCT_PILLS = ["Buk","Defontana","Manager ERP","SII","Google Workspace","Slack","Notion","Jira","Salesforce"];
+    var row = document.getElementById('pillRow');
+    if(row && typeof CONNECTORS !== 'undefined'){
+      var html = PRODUCT_PILLS.map(function(name){
+        var c = CONNECTORS.find(function(x){ return x.name === name; });
+        if(!c) return '';
+        var mark = (c.logo && c.logo.trim() !== '')
+          ? '<span class="mark has-logo"><img src="'+c.logo+'" alt="'+c.name+'" loading="lazy"></span>'
+          : '<span class="mark">'+c.initials+'</span>';
+        return '<span class="pill">'+mark+c.name+'</span>';
+      }).join('');
+      row.insertAdjacentHTML('afterbegin', html);
+    }
+  })();
+</script>
 <script>
   (function(){
     var toggle = document.getElementById('menuToggle');
