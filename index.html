@@ -412,6 +412,19 @@
   .app-icon{
     width:44px;
     height:44px;
+    object-fit:contain;
+  }
+  .app-icon.initials{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ffffff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    font-family:"Inter Tight","Inter",sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--text);
   }
   .app-card span{
     font-size:14px;
@@ -594,32 +607,14 @@
         <h2>Contecta con tus Apps</h2>
         <p>Conecta Plenix en minutos y comienza a buscar en todas tus fuentes de datos al instante.</p>
       </div>
-      <div class="app-grid">
-        <div class="app-card">
-          <svg class="app-icon" viewBox="0 0 48 48"><path fill="#4285F4" d="M14 6h20l14 24-10 12H10L0 30z"/><path fill="#34A853" d="M14 6l14 24H10L0 30z" opacity="0"/><path fill="#FBBC05" d="M0 30l10 12h24L24 30z"/><path fill="#EA4335" d="M34 6L24 24l10 18 14-24z" opacity="0"/><path fill="#34A853" d="M14 6L0 30h14l7-12z"/><path fill="#FBBC05" d="M14 42h20l7-12H10z" opacity=".001"/><path fill="#EA4335" d="M34 6H14l7 12h13z"/><path fill="#4285F4" d="M34 6l14 24-10 12L24 24z"/></svg>
-          <span>Google Drive</span>
-        </div>
-        <div class="app-card">
-          <svg class="app-icon" viewBox="0 0 48 48"><path d="M32 12h-4V9a5 5 0 0 0-10 0v3h-4a3 3 0 0 0-3 3l-2 22a3 3 0 0 0 3 3.3h22a3 3 0 0 0 3-3.3l-2-22a3 3 0 0 0-3-3zM21 9a3 3 0 0 1 6 0v3h-6z" fill="#95BF47"/><circle cx="19" cy="19" r="2.4" fill="#fff"/><circle cx="29" cy="19" r="2.4" fill="#fff"/></svg>
-          <span>Shopify</span>
-        </div>
-        <div class="app-card">
-          <svg class="app-icon" viewBox="0 0 48 48"><rect x="9" y="19" width="7" height="19" rx="3.4" fill="#36C5F0"/><rect x="9" y="9" width="19" height="7" rx="3.4" fill="#36C5F0" transform="rotate(90 9 9)" opacity="0"/><rect x="19" y="9" width="7" height="19" rx="3.4" fill="#2EB67D"/><rect x="22" y="9" width="19" height="7" rx="3.4" fill="#ECB22E"/><rect x="32" y="19" width="7" height="19" rx="3.4" fill="#E01E5A"/><rect x="9" y="32" width="19" height="7" rx="3.4" fill="#36C5F0"/><rect x="19" y="22" width="19" height="7" rx="3.4" fill="#ECB22E"/></svg>
-          <span>Slack</span>
-        </div>
-        <div class="app-card">
-          <svg class="app-icon" viewBox="0 0 48 48"><rect x="6" y="6" width="16" height="16" fill="#F35325"/><rect x="26" y="6" width="16" height="16" fill="#81BC06"/><rect x="6" y="26" width="16" height="16" fill="#05A6F0"/><rect x="26" y="26" width="16" height="16" fill="#FFBA08"/></svg>
-          <span>Microsoft</span>
-        </div>
-        <div class="app-card">
-          <svg class="app-icon" viewBox="0 0 48 48"><path d="M10 30 L26 10 L34 10 L18 30 L26 30 L14 44 L6 44 L20 26 L12 26 Z" fill="#FF6A1A"/></svg>
-          <span>Bsale</span>
-        </div>
-        <div class="app-card">
-          <svg class="app-icon" viewBox="0 0 48 48"><rect x="17" y="17" width="14" height="14" fill="#2684FF" transform="rotate(45 24 24)"/></svg>
-          <span>Jira</span>
-        </div>
-      </div>
+      <!--
+        Las tarjetas de abajo se generan automáticamente desde
+        connectors-data.js (mismo archivo que usa la página de
+        Integraciones), usando los conectores marcados con home:true.
+        Para agregar, quitar o reordenar una app acá, edita ese
+        archivo — no hace falta tocar este HTML.
+      -->
+      <div class="app-grid" id="appGrid"></div>
     </div>
   </section>
 
@@ -657,7 +652,20 @@
   <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
 </footer>
 
+<script src="connectors-data.js"></script>
 <script>
+(function(){
+  var grid = document.getElementById('appGrid');
+  if(grid && typeof CONNECTORS !== 'undefined'){
+    var apps = CONNECTORS.filter(function(c){ return c.home; });
+    grid.innerHTML = apps.map(function(c){
+      var icon = (c.logo && c.logo.trim() !== '')
+        ? '<img class="app-icon" src="'+c.logo+'" alt="'+c.name+'" loading="lazy">'
+        : '<div class="app-icon initials">'+c.initials+'</div>';
+      return '<div class="app-card">'+icon+'<span>'+c.name+'</span></div>';
+    }).join('');
+  }
+})();
 (function(){
   var toggle = document.getElementById('menuToggle');
   var menu = document.getElementById('mobileMenu');
