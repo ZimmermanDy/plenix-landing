@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+  <defs>
+    <clipPath id="clip"><rect x="0" y="0" width="640" height="300" rx="14" ry="14"/></clipPath>
+  </defs>
+  <g clip-path="url(#clip)">
+    <rect x="0" y="0" width="640" height="300" fill="#ffffff"/>
+    <rect x="0" y="0" width="640" height="40" fill="#fafafb"/>
+    <line x1="0" y1="40" x2="640" y2="40" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+    <circle cx="20" cy="20.0" r="4.5" fill="#ff5f57"/>
+    <circle cx="36" cy="20.0" r="4.5" fill="#febc2e"/>
+    <circle cx="52" cy="20.0" r="4.5" fill="#28c840"/>
+    <rect x="200" y="9.0" width="240" height="22" rx="6" fill="#f5f6fa"/>
+    <text x="320" y="24.0" text-anchor="middle" font-family="JetBrains Mono, Menlo, monospace" font-size="11" fill="#9494a0">app.plenix.ai/comparar</text>
+
+<text x="52" y="70" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#9494a0" text-anchor="start">ANTES</text>
+<rect x="26" y="82" width="270" height="30" rx="8" fill="#f5f6fa" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><text x="40" y="101" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#57576a" text-anchor="start">Buscar en Google Drive…</text>
+<rect x="26" y="120" width="270" height="30" rx="8" fill="#f5f6fa" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><text x="40" y="139" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#57576a" text-anchor="start">Revisar hilos en Slack…</text>
+<rect x="26" y="158" width="270" height="30" rx="8" fill="#f5f6fa" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><text x="40" y="177" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#57576a" text-anchor="start">Preguntar a un colega…</text>
+<rect x="26" y="204" width="150" height="34" rx="9" fill="#fafafb" stroke="rgba(20,19,31,0.08)" stroke-width="1"/><text x="46" y="226" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="500" fill="#14131f" text-anchor="start">45 min</text>
+
+<line x1="320" y1="58" x2="320" y2="252" stroke="rgba(20,19,31,0.08)" stroke-width="1"/>
+
+<text x="588" y="70" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="11" font-weight="600" letter-spacing="0.5" fill="#0059ff" text-anchor="end">CON PLENIX</text>
+<rect x="344" y="84" width="270" height="38" rx="10" fill="rgba(0,89,255,0.06)" stroke="#0059ff" stroke-width="1.5"/>
+<circle cx="366" cy="103" r="6" fill="none" stroke="#0059ff" stroke-width="2"/><line x1="370.5" y1="107.5" x2="375" y2="112" stroke="#0059ff" stroke-width="2" stroke-linecap="round"/>
+<text x="384" y="108" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#14131f" text-anchor="start">política de vacaciones actualizada</text>
+<rect x="344" y="204" width="150" height="34" rx="9" fill="rgba(0,89,255,0.06)" stroke="#0059ff" stroke-width="1"/><text x="364" y="226" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="18" font-weight="500" fill="#0059ff" text-anchor="start">5 seg</text>
+  </g>
+</svg>
