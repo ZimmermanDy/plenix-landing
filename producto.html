@@ -26,7 +26,7 @@
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth; overflow-x:hidden;}
+  html{scroll-behavior:smooth;}
 
   body{
     background:var(--bg);
@@ -71,35 +71,6 @@
   .nav-links a:hover{ color:var(--text); }
   .nav-links a.active{ color:var(--text); }
   .nav-cta{ display:flex; align-items:center; gap:14px; }
-
-  /* ---------- MOBILE MENU ---------- */
-  .menu-toggle{
-    display:none; flex-direction:column; justify-content:center; align-items:center;
-    gap:5px; width:40px; height:40px; border:none; background:none; cursor:pointer;
-    flex-shrink:0; padding:0;
-  }
-  .menu-toggle span{
-    display:block; width:20px; height:2px; background:var(--text);
-    border-radius:2px; transition:transform .25s ease, opacity .25s ease;
-  }
-  .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-  .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
-  .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-  .mobile-menu{
-    display:none; position:absolute; top:100%; left:0; right:0;
-    background:#ffffff; border-top:1px solid var(--border);
-    max-height:80vh; overflow-y:auto; box-shadow:0 24px 40px -20px rgba(20,19,31,0.18);
-  }
-  .mobile-menu.open{ display:block; }
-  .mobile-menu-inner{ padding:8px 24px 32px; }
-  .mobile-menu-links{ display:flex; flex-direction:column; }
-  .mobile-menu-links a{
-    padding:16px 2px; font-size:18px; font-weight:500; color:var(--text);
-    border-bottom:1px solid var(--border);
-  }
-  .mobile-menu-cta{ display:flex; flex-direction:column; gap:12px; margin-top:24px; }
-  .mobile-menu-cta .btn{ width:100%; }
 
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
@@ -293,23 +264,8 @@
   .footer-copy{ text-align:center; margin-top:28px; font-size:13px; color:var(--muted-2); }
 
   @media (max-width:900px){
-    .nav{ padding:16px 20px; }
     .nav-links{ display:none; }
-    .nav-cta .btn-ghost{ display:none; }
-    .menu-toggle{ display:flex; }
-    .hero{ padding:72px 0 0; }
-    .flow{ padding:64px 0 56px; }
-    .flow-step{ padding:28px 22px; }
-    .features{ padding:56px 0; }
-    .feature{ padding:26px 22px; min-height:auto; }
-    .teams{ padding:56px 0; }
-    .team{ padding:22px 20px; }
-    .integrations{ padding:56px 0; }
-    .security{ padding:56px 0; }
-    .security-inner{ flex-direction:column; gap:28px; }
-    .cta-band{ padding:72px 0; }
-    .footer-grid{ grid-template-columns:1fr; gap:40px; }
-    footer{ padding:56px 20px 32px; }
+    .footer-grid{ grid-template-columns:1fr; gap:48px; }
   }
 
   @media (prefers-reduced-motion: reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
@@ -334,31 +290,14 @@
     <div class="nav-links">
       <a href="producto.html" class="active">Producto</a>
       <a href="beneficios.html">Beneficios</a>
-      <a href="integraciones.html">Integraciones</a>
+      <a href="index.html#integraciones">Integraciones</a>
       <a href="nosotros.html">Nosotros</a>
     </div>
     <div class="nav-cta">
       <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
       <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-inner">
-      <div class="mobile-menu-links">
-        <a href="producto.html" class="active">Producto</a>
-        <a href="beneficios.html">Beneficios</a>
-        <a href="integraciones.html">Integraciones</a>
-        <a href="nosotros.html">Nosotros</a>
-      </div>
-      <div class="mobile-menu-cta">
-        <a href="index.html" class="btn btn-ghost">Iniciar Sesión</a>
-        <a href="demo.html" class="btn btn-primary">Agenda Demo</a>
-      </div>
-    </div>
-  </div>
 </header>
 
 <section class="hero">
@@ -369,7 +308,7 @@
 
     <div class="hero-cta">
       <a href="demo.html" class="btn btn-primary">Agenda una demo</a>
-      <a href="integraciones.html" class="btn btn-ghost">Ver integraciones</a>
+      <a href="#integraciones" class="btn btn-ghost">Ver integraciones</a>
     </div>
 
     <div class="mock">
@@ -578,7 +517,7 @@
       <h4>Plenix</h4>
       <a href="producto.html">Productos</a>
       <a href="beneficios.html">Beneficios</a>
-      <a href="integraciones.html">Integraciones</a>
+      <a href="index.html#integraciones">Integraciones</a>
     </div>
     <div class="footer-col">
       <h4>Legal</h4>
@@ -589,26 +528,6 @@
   </div>
   <div class="footer-copy">© 2026 Plenix. Todos los derechos reservados.</div>
 </footer>
-
-<script>
-  (function(){
-    var toggle = document.getElementById('menuToggle');
-    var menu = document.getElementById('mobileMenu');
-    if(!toggle || !menu) return;
-    toggle.addEventListener('click', function(){
-      var isOpen = menu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-    menu.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
-        menu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-  })();
-</script>
 
 </body>
 </html>
